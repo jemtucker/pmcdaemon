@@ -23,7 +23,7 @@ static int event_handler(struct mg_connection *conn, enum mg_event ev) {
 int run_server(void) {
     struct mg_server *server = mg_create_server(NULL, event_handler);
 
-    logmsg("Creating server", LEVEL_DEBUG);
+    dbg("Creating server");
     
     mg_set_option(server, "document_root", ".");
     mg_set_option(server, "listening_port", "8087");
@@ -31,8 +31,8 @@ int run_server(void) {
     const char *port = mg_get_option(server, "listening_port");
     const char *root = mg_get_option(server, "document_root");
     
-    logmsg("Initialising the server connection", LEVEL_DEBUG);
-    logmsgf(LEVEL_DEBUG, "Serving %s on port %s", root, port);
+    dbg("Initialising the server connection");
+    dbgf("Serving %s on port %s", root, port);
     
     for (;;) {
         mg_poll_server(server, 1000);

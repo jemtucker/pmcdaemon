@@ -17,18 +17,15 @@
 typedef enum {LEVEL_ERROR, LEVEL_INFO, LEVEL_DEBUG} logging_level_t;
 
 // Perform logging
-void logmsgf(logging_level_t lvl, char format[], ...);
-void logmsg(char message[], logging_level_t lvl);
-void info(char message[]);
-void err(char message[]);
-void dbg(char message[]);
+void info(const char *message);
+void err(const char *message);
+void dbg(const char *message);
+
+void infof(const char *format, ...);
+void errf(const char *format, ...);
+void dbgf(const char *format, ...);
 
 // Configure logging
 void set_log_level(logging_level_t lvl);
-
-// Util methods
-void log_message(char message[], char level[]);
-void get_log_time(char out[]);
-void level_to_string(logging_level_t lvl, char out[]);
 
 #endif /* defined(__PiPlayer__logging__) */

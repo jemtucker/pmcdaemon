@@ -13,6 +13,6 @@
 
 #include <stdio.h>
 
-int copystring(char in[], char out[]);
+int copystring(const char *in, char *out);
 
 #endif /* defined(__PiPlayer__piutil__) */

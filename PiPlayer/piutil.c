@@ -12,7 +12,7 @@
 #include "logging.h"
 
 
-int copystring(char in[], char out[]) {
+int copystring(const char *in, char *out) {
     int in_size = sizeof(in);
     int out_size = sizeof(out);
     
