@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B9A59E791ACE7B9300F9A180 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E781ACE7B9300F9A180 /* main.c */; };
+		B9A59E841ACE7E8200F9A180 /* logging.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E821ACE7E8200F9A180 /* logging.c */; };
+		B9A59E871ACE90B800F9A180 /* options.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E851ACE90B800F9A180 /* options.c */; };
+		B9A59E8A1ACE9D7500F9A180 /* piutil.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E881ACE9D7500F9A180 /* piutil.c */; };
+		B9A59E8D1ACEA91500F9A180 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E8B1ACEA91500F9A180 /* server.c */; };
+		B9A59E901ACEAA8C00F9A180 /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E8E1ACEAA8C00F9A180 /* mongoose.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,16 @@
 /* Begin PBXFileReference section */
 		B9A59E751ACE7B9300F9A180 /* PiPlayer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PiPlayer; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A59E781ACE7B9300F9A180 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		B9A59E821ACE7E8200F9A180 /* logging.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = logging.c; sourceTree = "<group>"; };
+		B9A59E831ACE7E8200F9A180 /* logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logging.h; sourceTree = "<group>"; };
+		B9A59E851ACE90B800F9A180 /* options.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = options.c; sourceTree = "<group>"; };
+		B9A59E861ACE90B800F9A180 /* options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
+		B9A59E881ACE9D7500F9A180 /* piutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = piutil.c; sourceTree = "<group>"; };
+		B9A59E891ACE9D7500F9A180 /* piutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = piutil.h; sourceTree = "<group>"; };
+		B9A59E8B1ACEA91500F9A180 /* server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = server.c; sourceTree = "<group>"; };
+		B9A59E8C1ACEA91500F9A180 /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server.h; sourceTree = "<group>"; };
+		B9A59E8E1ACEAA8C00F9A180 /* mongoose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mongoose.c; sourceTree = "<group>"; };
+		B9A59E8F1ACEAA8C00F9A180 /* mongoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongoose.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +72,17 @@
 		B9A59E771ACE7B9300F9A180 /* PiPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				B9A59E8E1ACEAA8C00F9A180 /* mongoose.c */,
+				B9A59E8F1ACEAA8C00F9A180 /* mongoose.h */,
 				B9A59E781ACE7B9300F9A180 /* main.c */,
+				B9A59E821ACE7E8200F9A180 /* logging.c */,
+				B9A59E831ACE7E8200F9A180 /* logging.h */,
+				B9A59E851ACE90B800F9A180 /* options.c */,
+				B9A59E861ACE90B800F9A180 /* options.h */,
+				B9A59E881ACE9D7500F9A180 /* piutil.c */,
+				B9A59E891ACE9D7500F9A180 /* piutil.h */,
+				B9A59E8B1ACEA91500F9A180 /* server.c */,
+				B9A59E8C1ACEA91500F9A180 /* server.h */,
 			);
 			path = PiPlayer;
 			sourceTree = "<group>";
@@ -118,7 +143,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A59E8A1ACE9D7500F9A180 /* piutil.c in Sources */,
 				B9A59E791ACE7B9300F9A180 /* main.c in Sources */,
+				B9A59E871ACE90B800F9A180 /* options.c in Sources */,
+				B9A59E8D1ACEA91500F9A180 /* server.c in Sources */,
+				B9A59E901ACEAA8C00F9A180 /* mongoose.c in Sources */,
+				B9A59E841ACE7E8200F9A180 /* logging.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

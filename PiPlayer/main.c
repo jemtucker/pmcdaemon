@@ -7,9 +7,16 @@
 //
 
 #include <stdio.h>
+#include "options.h"
+#include "server.h"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+int main(int argc, char * argv[]) {
+    parse_options(argc, argv);
+    
+    run_server();
+    
     return 0;
 }
+
+
+
