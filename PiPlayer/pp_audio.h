@@ -13,4 +13,6 @@
 #include <ao/ao.h>
 #include <mpg123.h>
 
+int pp_test(void);
+
 #endif /* defined(__PiPlayer__audio__) */
