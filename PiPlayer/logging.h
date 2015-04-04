@@ -11,7 +11,9 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 #include <time.h>
+#include <ctype.h>
 #include "piutil.h"
 
 typedef enum {LEVEL_ERROR, LEVEL_INFO, LEVEL_DEBUG} logging_level_t;
@@ -26,6 +28,6 @@ void errf(const char *format, ...);
 void dbgf(const char *format, ...);
 
 // Configure logging
-void set_log_level(logging_level_t lvl);
+void set_log_level(const char *level);
 
 #endif /* defined(__PiPlayer__logging__) */

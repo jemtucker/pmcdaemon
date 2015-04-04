@@ -12,7 +12,9 @@
 #define __PiPlayer__piutil__
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "logging.h"
 
 int copystring(const char *in, char *out);
-
+const char *uppercase_string(const char *string);
 #endif /* defined(__PiPlayer__piutil__) */

@@ -11,10 +11,11 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 #include "mongoose.h"
 #include "logging.h"
 
 int run_server(void);
-static int event_handler(struct mg_connection *conn, enum mg_event ev);
+int set_listening_port(char* port);
 
 #endif /* defined(__PiPlayer__server__) */

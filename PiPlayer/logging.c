@@ -19,6 +19,7 @@ void logmsg(const char *message, logging_level_t lvl);
 void log_message(const char *message, const char *level);
 void get_log_time(char out[]);
 void level_to_string(logging_level_t lvl, char *out);
+logging_level_t string_to_level(const char *level);
 
 // Implementation
 void logmsg(const char *message, logging_level_t lvl) {
@@ -71,13 +72,11 @@ void infof(const char *format, ...) {
     logmsg(message, LEVEL_INFO);
 }
 
-void set_log_level(const logging_level_t lvl) {
-    MAX_LEVEL_TO_LOG = lvl;
-    char level[5];
-    level_to_string(lvl, level);
-    char message[31];
-    sprintf(message, "Setting logging level to %s", level);
-    logmsg(message, LEVEL_DEBUG);
+void set_log_level(const char *level) {
+    MAX_LEVEL_TO_LOG = string_to_level(level);
+    const char * uppercase_level = uppercase_string(level);
+    dbgf("Setting MAX_LEVEL_TO_LOG to %s.", uppercase_level);
+    free(uppercase_level);
 }
 
 void log_message(const char *message, const char *level) {
@@ -87,9 +86,9 @@ void log_message(const char *message, const char *level) {
 }
 
 void get_log_time(char *out) {
-    time_t rawTime;
-    time(&rawTime);
-    char * time = ctime(&rawTime);
+    time_t raw_time;
+    time(&raw_time);
+    char * time = ctime(&raw_time);
     for (int i = 4; i < 19; i++) {
         out[i - 4] = time[i];
     }
@@ -100,6 +99,21 @@ void level_to_string(logging_level_t lvl, char *out) {
         case LEVEL_INFO: copystring("INFO", out); break;
         case LEVEL_ERROR: copystring("ERROR", out); break;
         case LEVEL_DEBUG: copystring("DEBUG", out); break;
+        default: errf("Invalid logging level %d", lvl);
     }
+}
+
+logging_level_t string_to_level(const char *level) {
+    const char *uppercase_level = uppercase_string(level);
+    int retval;
+    if (strcmp(uppercase_level, "INFO") == 0) retval = LEVEL_INFO;
+    else if (strcmp(uppercase_level, "DEBUG") == 0) retval = LEVEL_DEBUG;
+    else if (strcmp(uppercase_level, "ERROR") == 0) retval = LEVEL_ERROR;
+    else {
+        errf("Logging level %s could not be recognised.", level);
+       retval = -1;
+    }
+    free(uppercase_level);
+    return retval;
 }
 

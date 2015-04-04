@@ -13,11 +13,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "logging.h"
+#include "server.h"
 
 void parse_options(int argc, char *argv[]);
-
-void print_usage(void);
-void print_help(void);
-void print_usage_exit(void);
 
 #endif /* defined(__PiPlayer__options__) */

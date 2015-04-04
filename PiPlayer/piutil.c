@@ -9,8 +9,6 @@
 //
 
 #include "piutil.h"
-#include "logging.h"
-
 
 int copystring(const char *in, char *out) {
     int in_size = sizeof(in);
@@ -26,4 +24,13 @@ int copystring(const char *in, char *out) {
     }
     
     return 0;
+}
+
+const char *uppercase_string(const char *string) {
+    char *uppercase_string = malloc(sizeof(string));
+    copystring(string, uppercase_string);
+    for (int i = 0; i < sizeof(uppercase_string); i++) {
+        uppercase_string[i] = toupper(uppercase_string[i]);
+    }
+    return uppercase_string;
 }

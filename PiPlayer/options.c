@@ -8,14 +8,20 @@
 
 #include "options.h"
 
+void print_usage(void);
+void print_help(void);
+void print_usage_exit(void);
+
+extern char *optarg;
+extern int opterr;
+
 void parse_options(int argc, char *argv[]) {
     char opt;
-    
-    while ((opt = getopt(argc, argv, "ideh")) != -1) {
+    opterr = 0;
+    while ((opt = getopt(argc, argv, "l:p:")) != -1 && (opt != 255)) {
         switch (opt) {
-            case 'i': set_log_level(LEVEL_INFO); break;
-            case 'd': set_log_level(LEVEL_DEBUG); break;
-            case 'e': set_log_level(LEVEL_ERROR); break;
+            case 'l': set_log_level(optarg); break;
+            case 'p': set_listening_port(optarg); break;
             case 'h': print_help(); break;
             default: print_usage_exit();
         }
@@ -23,11 +29,10 @@ void parse_options(int argc, char *argv[]) {
 }
 
 void print_usage(void) {
-    printf("Usage: PiPlayer [-ideh] \n");
-    printf("        -i: Logging level info.\n");
-    printf("        -d: Logging level debug.\n");
-    printf("        -e: Logging level error.\n");
-    printf("        -h: Display this help.\n");
+    printf("Usage: PiPlayer [-lph] \n");
+    printf("    -l: level       Logging level info.\n");
+    printf("    -p: port        REST server port.\n");
+    printf("    -h:             Display this help.\n");
 }
 
 void print_help(void) {
