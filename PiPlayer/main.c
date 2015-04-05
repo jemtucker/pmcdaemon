@@ -23,9 +23,6 @@ int main(int argc, char * argv[]) {
     // Parse the options.
     parse_options(argc, argv, conf);
     
-    
-    
-    
     stream_url(STREAM_URL);
 //    run_server();
     
