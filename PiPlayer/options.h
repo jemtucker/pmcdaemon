@@ -14,9 +14,9 @@
 #include <stdlib.h>
 
 typedef struct configuration {
-    const char *logging_level;
-    const char *port;
-    const char *stream_url;
+    char *logging_level;
+    char *port;
+    char *stream_url;
 } Configuration;
 
 void parse_options(int argc, char *argv[], Configuration *conf) ;

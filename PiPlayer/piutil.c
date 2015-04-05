@@ -34,3 +34,8 @@ const char *uppercase_string(const char *string) {
     }
     return uppercase_string;
 }
+
+int string_non_empty(const char *string) {
+    if (strcmp("", string) != 0) return 1;
+    else return 0;
+}

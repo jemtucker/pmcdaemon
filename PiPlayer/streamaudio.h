@@ -13,8 +13,11 @@
 #include <ao/ao.h>
 #include <mpg123.h>
 #include <curl/curl.h>
+#include <stdbool.h>
+#include <pthread.h>
+#include "logging.h"
 
-int pp_test(void);
-int stream_url(const char *url);
+bool is_playing;
+int thread_stream_url(char *url);
 
 #endif /* defined(__PiPlayer__audio__) */

@@ -63,7 +63,7 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-u http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p"
+            argument = "-u http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio2_mf_p"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

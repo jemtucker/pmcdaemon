@@ -17,4 +17,6 @@
 
 int copystring(const char *in, char *out);
 const char *uppercase_string(const char *string);
+int string_non_empty(const char *string);
+
 #endif /* defined(__PiPlayer__piutil__) */

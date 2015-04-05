@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include "piutil.h"
 #include "options.h"
 #include "server.h"
 #include "streamaudio.h"
@@ -17,13 +18,28 @@ Configuration CONFIGURATION_DEFAULT = {
 };
 
 
-int main(int argc, char * argv[]) {
-    Configuration *conf = &CONFIGURATION_DEFAULT;
+int main(int argc, char *argv[]) {
+    Configuration conf = CONFIGURATION_DEFAULT;
     
-    // Parse the options.
-    parse_options(argc, argv, conf);
+    // Parse the options
+    parse_options(argc, argv, &conf);
     
-    stream_url(STREAM_URL);
+    // Initialise using configuration
+    set_log_level(conf.logging_level);
+    set_listening_port(conf.port);
+    
+    // Stream?
+    if (string_non_empty(conf.stream_url)) {
+        thread_stream_url(conf.stream_url);
+        // Loop
+        while (is_playing) {
+            usleep(1000);
+        }
+    }
+    
+    
+    
+    
 //    run_server();
     
     return 0;
