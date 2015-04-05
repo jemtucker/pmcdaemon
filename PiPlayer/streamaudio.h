@@ -12,7 +12,9 @@
 #include <stdio.h>
 #include <ao/ao.h>
 #include <mpg123.h>
+#include <curl/curl.h>
 
 int pp_test(void);
+int stream_test(void);
 
 #endif /* defined(__PiPlayer__audio__) */

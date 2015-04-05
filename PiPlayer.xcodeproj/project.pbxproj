@@ -13,7 +13,7 @@
 		B9A59E8A1ACE9D7500F9A180 /* piutil.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E881ACE9D7500F9A180 /* piutil.c */; };
 		B9A59E8D1ACEA91500F9A180 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E8B1ACEA91500F9A180 /* server.c */; };
 		B9A59E901ACEAA8C00F9A180 /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E8E1ACEAA8C00F9A180 /* mongoose.c */; };
-		B9A59E941AD0141200F9A180 /* pp_audio.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E921AD0141200F9A180 /* pp_audio.c */; };
+		B9A59E941AD0141200F9A180 /* streamaudio.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E921AD0141200F9A180 /* streamaudio.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,8 +41,8 @@
 		B9A59E8C1ACEA91500F9A180 /* server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = server.h; sourceTree = "<group>"; };
 		B9A59E8E1ACEAA8C00F9A180 /* mongoose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mongoose.c; sourceTree = "<group>"; };
 		B9A59E8F1ACEAA8C00F9A180 /* mongoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongoose.h; sourceTree = "<group>"; };
-		B9A59E921AD0141200F9A180 /* pp_audio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pp_audio.c; sourceTree = "<group>"; };
-		B9A59E931AD0141200F9A180 /* pp_audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pp_audio.h; sourceTree = "<group>"; };
+		B9A59E921AD0141200F9A180 /* streamaudio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = streamaudio.c; sourceTree = "<group>"; };
+		B9A59E931AD0141200F9A180 /* streamaudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = streamaudio.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +85,8 @@
 				B9A59E891ACE9D7500F9A180 /* piutil.h */,
 				B9A59E8B1ACEA91500F9A180 /* server.c */,
 				B9A59E8C1ACEA91500F9A180 /* server.h */,
-				B9A59E921AD0141200F9A180 /* pp_audio.c */,
-				B9A59E931AD0141200F9A180 /* pp_audio.h */,
+				B9A59E921AD0141200F9A180 /* streamaudio.c */,
+				B9A59E931AD0141200F9A180 /* streamaudio.h */,
 			);
 			path = PiPlayer;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9A59E941AD0141200F9A180 /* pp_audio.c in Sources */,
+				B9A59E941AD0141200F9A180 /* streamaudio.c in Sources */,
 				B9A59E8A1ACE9D7500F9A180 /* piutil.c in Sources */,
 				B9A59E791ACE7B9300F9A180 /* main.c in Sources */,
 				B9A59E871ACE90B800F9A180 /* options.c in Sources */,
@@ -259,6 +259,7 @@
 				OTHER_LDFLAGS = (
 					"-lao",
 					"-lmpg123",
+					"-lcurl",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -280,6 +281,7 @@
 				OTHER_LDFLAGS = (
 					"-lao",
 					"-lmpg123",
+					"-lcurl",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -304,6 +306,7 @@
 				B9A59E7E1ACE7B9300F9A180 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

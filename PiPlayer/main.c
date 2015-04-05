@@ -9,11 +9,11 @@
 #include <stdio.h>
 #include "options.h"
 #include "server.h"
-#include "pp_audio.h"
+#include "streamaudio.h"
 
 int main(int argc, char * argv[]) {
 //    parse_options(argc, argv);
-    pp_test();
+    stream_test();
 //    run_server();
     
     return 0;
