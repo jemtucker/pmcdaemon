@@ -8,7 +8,6 @@
 
 #include "streamaudio.h"
 
-#define STREAM_URL "http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p"
 #define BITS_IN_BYTE 8
 
 // Forward declarations
@@ -20,7 +19,7 @@ CURL *curl_handle = NULL;
 // Functions
 size_t play_stream(void *buffer, size_t size, size_t nmeb, void *userp);
 
-int stream_test(void) {
+int stream_url(const char *url) {
     ao_initialize();
     mpg123_init();
     mpg_handle = mpg123_new(NULL, NULL);
@@ -28,7 +27,7 @@ int stream_test(void) {
     
     curl_handle = curl_easy_init();
     curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, play_stream);
-    curl_easy_setopt(curl_handle, CURLOPT_URL, STREAM_URL);
+    curl_easy_setopt(curl_handle, CURLOPT_URL, url);
     curl_easy_perform(curl_handle);
     curl_easy_cleanup(curl_handle);
     

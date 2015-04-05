@@ -11,9 +11,22 @@
 #include "server.h"
 #include "streamaudio.h"
 
+// Default configuration
+Configuration CONFIGURATION_DEFAULT = {
+    "DEBUG", "8080", ""
+};
+
+
 int main(int argc, char * argv[]) {
-//    parse_options(argc, argv);
-    stream_test();
+    Configuration *conf = &CONFIGURATION_DEFAULT;
+    
+    // Parse the options.
+    parse_options(argc, argv, conf);
+    
+    
+    
+    
+    stream_url(STREAM_URL);
 //    run_server();
     
     return 0;

@@ -15,6 +15,6 @@
 #include <curl/curl.h>
 
 int pp_test(void);
-int stream_test(void);
+int stream_url(const char *url);
 
 #endif /* defined(__PiPlayer__audio__) */

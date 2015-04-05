@@ -15,13 +15,14 @@ void print_usage_exit(void);
 extern char *optarg;
 extern int opterr;
 
-void parse_options(int argc, char *argv[]) {
+void parse_options(int argc, char *argv[], struct configuration *conf) {
     char opt;
     opterr = 0;
-    while ((opt = getopt(argc, argv, "l:p:")) != -1 && (opt != 255)) {
+    while ((opt = getopt(argc, argv, "l:p:u:")) != -1 && (opt != 255)) {
         switch (opt) {
-            case 'l': set_log_level(optarg); break;
-            case 'p': set_listening_port(optarg); break;
+            case 'l': conf->logging_level = optarg; break;
+            case 'p': conf->port = optarg; break;
+            case 'u': conf->stream_url = optarg; break;
             case 'h': print_help(); break;
             default: print_usage_exit();
         }
@@ -31,6 +32,7 @@ void parse_options(int argc, char *argv[]) {
 void print_usage(void) {
     printf("Usage: PiPlayer [-lph] \n");
     printf("    -l: level       Logging level info.\n");
+    printf("    -u: url         Stream url.\n");
     printf("    -p: port        REST server port.\n");
     printf("    -h:             Display this help.\n");
 }

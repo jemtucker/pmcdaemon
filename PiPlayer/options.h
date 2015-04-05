@@ -12,9 +12,13 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "logging.h"
-#include "server.h"
 
-void parse_options(int argc, char *argv[]);
+typedef struct configuration {
+    const char *logging_level;
+    const char *port;
+    const char *stream_url;
+} Configuration;
+
+void parse_options(int argc, char *argv[], Configuration *conf) ;
 
 #endif /* defined(__PiPlayer__options__) */
