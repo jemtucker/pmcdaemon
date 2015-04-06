@@ -88,8 +88,7 @@
 				B9A59E921AD0141200F9A180 /* streamaudio.c */,
 				B9A59E931AD0141200F9A180 /* streamaudio.h */,
 			);
-			name = pimediacenter;
-			path = PiPlayer;
+			path = pimediacenter;
 			sourceTree = "<group>";
 		};
 		B9A59E911AD0121600F9A180 /* inc */ = {
