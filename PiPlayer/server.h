@@ -14,6 +14,7 @@
 #include <stdbool.h>
 #include "mongoose.h"
 #include "logging.h"
+#include "streamaudio.h"
 
 int run_server(void);
 int set_listening_port(char* port);

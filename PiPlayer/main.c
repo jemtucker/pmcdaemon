@@ -31,16 +31,9 @@ int main(int argc, char *argv[]) {
     // Stream?
     if (string_non_empty(conf.stream_url)) {
         thread_stream_url(conf.stream_url);
-        // Loop
-        while (is_playing) {
-            usleep(1000);
-        }
     }
     
-    
-    
-    
-//    run_server();
+    run_server();
     
     return 0;
 }

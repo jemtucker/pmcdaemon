@@ -16,35 +16,51 @@ mpg123_handle *handle_mpg123 = NULL;
 ao_device *handle_aodevice = NULL;
 CURL *handle_curl = NULL;
 
-bool is_playing = false;
+bool _is_playing = false;
+bool is_init = false;
 
 pthread_t thread_current;
 
-// Mutexts
-pthread_mutex_t mutex_streaming;
+// Mutex
+pthread_mutex_t is_playing_mutex;
 
 // Functions
 void *stream_url(void *raw_url);
 int cancel_streaming_safely();
 size_t play_stream(void *buffer, size_t size, size_t nmeb, void *userp);
+void init(void);
+bool is_playing(void);
+void set_playing(bool boolean);
 
 // Implementation
-int thread_stream_url(char *url) {
-    if (is_playing) {
+int thread_stream_url(const char *url) {
+    if (is_playing()) {
         dbg("A thread is already streaming, now stopping...");
+        
+        // Stop then sleep to allow curl to pause
+        // TODO horrible mem leak
+        set_playing(false);
+        
+        sleep(1);
+        
         int err = pthread_cancel(thread_current);
+        
         if (err) {
             // Thread not cancelled
             errf("Attempt to cancel thread failed with return value: %s", err);
             return err;
         }
-        cancel_streaming_safely();
     }
     
-    is_playing = true;
+    set_playing(true);
+    
+    // Mem leak and why + 1???
+    char *stored_url = malloc(strlen(url) + 1);
+    
+    strlcpy(stored_url, url, strlen(url) + 1);
     
     dbg("Beggining streaming in new thread");
-    pthread_create(&thread_current, NULL, stream_url, url);
+    pthread_create(&thread_current, NULL, stream_url, stored_url);
     dbg("Streaming started succesfully");
     
     return 0;
@@ -62,32 +78,44 @@ int cancel_streaming_safely() {
     ao_close(handle_aodevice);
     ao_shutdown();
     
-    is_playing = false;
+    set_playing(false);
+    is_init = false;
+    
+    pthread_mutex_destroy(&is_playing_mutex);
     
     return 0;
 }
 
 void *stream_url(void *raw_url) {
-    const char *url = (char *)raw_url;
+    const char *url = (const char *)raw_url;
     dbgf("Streaming URL %s", url);
     
-    ao_initialize();
-    mpg123_init();
-    handle_mpg123 = mpg123_new(NULL, NULL);
-    mpg123_open_feed(handle_mpg123);
+    if (!is_init) init();
     
-    handle_curl = curl_easy_init();
-    curl_easy_setopt(handle_curl, CURLOPT_WRITEFUNCTION, play_stream);
+    curl_easy_reset(handle_curl);
     curl_easy_setopt(handle_curl, CURLOPT_URL, url);
+    curl_easy_setopt(handle_curl, CURLOPT_WRITEFUNCTION, play_stream);
     curl_easy_perform(handle_curl);
     
-    cancel_streaming_safely();
+    free(raw_url);
     
     return 0;
 }
 
+void init(void) {
+    pthread_mutex_init(&is_playing_mutex, NULL);
+    ao_initialize();
+    mpg123_init();
+    handle_mpg123 = mpg123_new(NULL, NULL);
+    mpg123_open_feed(handle_mpg123);
+    handle_curl = curl_easy_init();
+    is_init = true;
+}
+
 
 size_t play_stream(void *buffer, size_t size, size_t nmeb, void *userp) {
+    if (!is_playing()) return CURLE_ABORTED_BY_CALLBACK;
+    
     int err;
     off_t frame_offset;
     unsigned char *audio;
@@ -122,6 +150,19 @@ size_t play_stream(void *buffer, size_t size, size_t nmeb, void *userp) {
     } while (done > 0);
     
     return size * nmeb;
+}
+
+bool is_playing(void) {
+    pthread_mutex_lock(&is_playing_mutex);
+    bool retval = _is_playing;
+    pthread_mutex_unlock(&is_playing_mutex);
+    return retval;
+}
+
+void set_playing(bool boolean) {
+    pthread_mutex_lock(&is_playing_mutex);
+    _is_playing = boolean;
+    pthread_mutex_unlock(&is_playing_mutex);
 }
 
 

@@ -13,6 +13,7 @@ char *PI_LISTENING_PORT = PI_DEFAULT_PORT;
 bool server_running = false;
 
 static int event_handler(struct mg_connection *conn, enum mg_event ev);
+void process_request(struct mg_connection *conn);
 
 int set_listening_port(char* port) {
     if (server_running) {
@@ -29,16 +30,28 @@ static int event_handler(struct mg_connection *conn, enum mg_event ev) {
     switch (ev) {
         case MG_AUTH: return MG_TRUE;
         case MG_REQUEST:
-            mg_printf_data(conn, "Hello! Requested URI is [%s] \n", conn->uri);
-            dbgf("Recived request to %s", conn->uri);
+            process_request(conn);
             return MG_TRUE;
-            
         default:
             return MG_FALSE;
     }
 }
 
+void process_request(struct mg_connection *conn) {
+    mg_printf_data(conn, "Processing requested URI [%s] \n", conn->uri);
+    dbgf("Recived request to [%s]", conn->uri);
+    
+    char url_array[100] = "http:/";
+    strcat(url_array, conn->uri);
+    
+    const char *url = &url_array[0];
+    
+    thread_stream_url(url);
+    dbg("Success!");
+}
+
 int run_server(void) {
+    // TODO In another thread?
     struct mg_server *server = mg_create_server(NULL, event_handler);
 
     dbg("Creating server");
