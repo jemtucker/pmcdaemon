@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B9A59E741ACE7B9300F9A180"
-               BuildableName = "PiPlayer"
-               BlueprintName = "PiPlayer"
-               ReferencedContainer = "container:PiPlayer.xcodeproj">
+               BuildableName = "pimediacenter"
+               BlueprintName = "pimediacenter"
+               ReferencedContainer = "container:pimediacenter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B9A59E741ACE7B9300F9A180"
-            BuildableName = "PiPlayer"
-            BlueprintName = "PiPlayer"
-            ReferencedContainer = "container:PiPlayer.xcodeproj">
+            BuildableName = "pimediacenter"
+            BlueprintName = "pimediacenter"
+            ReferencedContainer = "container:pimediacenter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B9A59E741ACE7B9300F9A180"
-            BuildableName = "PiPlayer"
-            BlueprintName = "PiPlayer"
-            ReferencedContainer = "container:PiPlayer.xcodeproj">
+            BuildableName = "pimediacenter"
+            BlueprintName = "pimediacenter"
+            ReferencedContainer = "container:pimediacenter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B9A59E741ACE7B9300F9A180"
-            BuildableName = "PiPlayer"
-            BlueprintName = "PiPlayer"
-            ReferencedContainer = "container:PiPlayer.xcodeproj">
+            BuildableName = "pimediacenter"
+            BlueprintName = "pimediacenter"
+            ReferencedContainer = "container:pimediacenter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

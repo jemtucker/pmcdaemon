@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PiPlayer.xcodeproj">
+      location = "self:pimediacenter.xcodeproj">
    </FileRef>
 </Workspace>

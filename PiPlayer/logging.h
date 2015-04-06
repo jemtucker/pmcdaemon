@@ -6,14 +6,15 @@
 //  Copyright (c) 2015 Jem Tucker. All rights reserved.
 //
 
-#ifndef __PiPlayer__logging__
-#define __PiPlayer__logging__
+#ifndef __pimediacenter__logging__
+#define __pimediacenter__logging__
 
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
 #include <time.h>
 #include <ctype.h>
+
 #include "piutil.h"
 
 typedef enum {LEVEL_ERROR, LEVEL_INFO, LEVEL_DEBUG} logging_level_t;
@@ -30,4 +31,4 @@ void dbgf(const char *format, ...);
 // Configure logging
 void set_log_level(const char *level);
 
-#endif /* defined(__PiPlayer__logging__) */
+#endif /* defined(__pimediacenter__logging__) */

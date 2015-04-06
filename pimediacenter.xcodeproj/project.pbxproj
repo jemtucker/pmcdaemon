@@ -29,7 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B9A59E751ACE7B9300F9A180 /* PiPlayer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PiPlayer; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9A59E751ACE7B9300F9A180 /* pimediacenter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pimediacenter; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A59E781ACE7B9300F9A180 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		B9A59E821ACE7E8200F9A180 /* logging.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = logging.c; sourceTree = "<group>"; };
 		B9A59E831ACE7E8200F9A180 /* logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logging.h; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		B9A59E6C1ACE7B9300F9A180 = {
 			isa = PBXGroup;
 			children = (
-				B9A59E771ACE7B9300F9A180 /* PiPlayer */,
+				B9A59E771ACE7B9300F9A180 /* pimediacenter */,
 				B9A59E761ACE7B9300F9A180 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,12 +67,12 @@
 		B9A59E761ACE7B9300F9A180 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B9A59E751ACE7B9300F9A180 /* PiPlayer */,
+				B9A59E751ACE7B9300F9A180 /* pimediacenter */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B9A59E771ACE7B9300F9A180 /* PiPlayer */ = {
+		B9A59E771ACE7B9300F9A180 /* pimediacenter */ = {
 			isa = PBXGroup;
 			children = (
 				B9A59E911AD0121600F9A180 /* inc */,
@@ -88,6 +88,7 @@
 				B9A59E921AD0141200F9A180 /* streamaudio.c */,
 				B9A59E931AD0141200F9A180 /* streamaudio.h */,
 			);
+			name = pimediacenter;
 			path = PiPlayer;
 			sourceTree = "<group>";
 		};
@@ -103,9 +104,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B9A59E741ACE7B9300F9A180 /* PiPlayer */ = {
+		B9A59E741ACE7B9300F9A180 /* pimediacenter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B9A59E7C1ACE7B9300F9A180 /* Build configuration list for PBXNativeTarget "PiPlayer" */;
+			buildConfigurationList = B9A59E7C1ACE7B9300F9A180 /* Build configuration list for PBXNativeTarget "pimediacenter" */;
 			buildPhases = (
 				B9A59E711ACE7B9300F9A180 /* Sources */,
 				B9A59E721ACE7B9300F9A180 /* Frameworks */,
@@ -115,9 +116,9 @@
 			);
 			dependencies = (
 			);
-			name = PiPlayer;
+			name = pimediacenter;
 			productName = PiPlayer;
-			productReference = B9A59E751ACE7B9300F9A180 /* PiPlayer */;
+			productReference = B9A59E751ACE7B9300F9A180 /* pimediacenter */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -134,7 +135,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B9A59E701ACE7B9300F9A180 /* Build configuration list for PBXProject "PiPlayer" */;
+			buildConfigurationList = B9A59E701ACE7B9300F9A180 /* Build configuration list for PBXProject "pimediacenter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -146,7 +147,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B9A59E741ACE7B9300F9A180 /* PiPlayer */,
+				B9A59E741ACE7B9300F9A180 /* pimediacenter */,
 			);
 		};
 /* End PBXProject section */
@@ -261,7 +262,7 @@
 					"-lmpg123",
 					"-lcurl",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = pimediacenter;
 			};
 			name = Debug;
 		};
@@ -283,14 +284,14 @@
 					"-lmpg123",
 					"-lcurl",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = pimediacenter;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B9A59E701ACE7B9300F9A180 /* Build configuration list for PBXProject "PiPlayer" */ = {
+		B9A59E701ACE7B9300F9A180 /* Build configuration list for PBXProject "pimediacenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9A59E7A1ACE7B9300F9A180 /* Debug */,
@@ -299,7 +300,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B9A59E7C1ACE7B9300F9A180 /* Build configuration list for PBXNativeTarget "PiPlayer" */ = {
+		B9A59E7C1ACE7B9300F9A180 /* Build configuration list for PBXNativeTarget "pimediacenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9A59E7D1ACE7B9300F9A180 /* Debug */,

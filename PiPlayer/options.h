@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Jem Tucker. All rights reserved.
 //
 
-#ifndef __PiPlayer__options__
-#define __PiPlayer__options__
+#ifndef __pimediacenter__options__
+#define __pimediacenter__options__
 
 #include <stdio.h>
 #include <unistd.h>
@@ -21,4 +21,4 @@ typedef struct configuration {
 
 void parse_options(int argc, char *argv[], Configuration *conf) ;
 
-#endif /* defined(__PiPlayer__options__) */
+#endif /* defined(__pimediacenter__options__) */
