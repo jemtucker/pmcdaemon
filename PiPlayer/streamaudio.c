@@ -16,32 +16,39 @@ mpg123_handle *handle_mpg123 = NULL;
 ao_device *handle_aodevice = NULL;
 CURL *handle_curl = NULL;
 
+bool mutex_init = false;
 bool _is_playing = false;
-bool is_init = false;
+bool _is_init = false;
 
 pthread_t thread_current;
 
 // Mutex
 pthread_mutex_t is_playing_mutex;
+pthread_mutex_t is_init_mutex;
 
 // Functions
 void *stream_url(void *raw_url);
 int cancel_streaming_safely();
 size_t play_stream(void *buffer, size_t size, size_t nmeb, void *userp);
 void init(void);
+
 bool is_playing(void);
 void set_playing(bool boolean);
+bool is_init(void);
+void set_init(bool boolean);
 
 // Implementation
 int thread_stream_url(const char *url) {
     if (is_playing()) {
         dbg("A thread is already streaming, now stopping...");
         
-        // Stop then sleep to allow curl to pause
+        // Stop then sleep to allow curl to pause and shutdown
         // TODO horrible mem leak
         set_playing(false);
         
-        sleep(1);
+        while (is_init()) {
+            usleep(100);
+        }
         
         int err = pthread_cancel(thread_current);
         
@@ -57,7 +64,7 @@ int thread_stream_url(const char *url) {
     // Mem leak and why + 1???
     char *stored_url = malloc(strlen(url) + 1);
     
-    strlcpy(stored_url, url, strlen(url) + 1);
+    strcpy(stored_url, url);
     
     dbg("Beggining streaming in new thread");
     pthread_create(&thread_current, NULL, stream_url, stored_url);
@@ -79,9 +86,7 @@ int cancel_streaming_safely() {
     ao_shutdown();
     
     set_playing(false);
-    is_init = false;
-    
-    pthread_mutex_destroy(&is_playing_mutex);
+    set_init(false);
     
     return 0;
 }
@@ -90,7 +95,7 @@ void *stream_url(void *raw_url) {
     const char *url = (const char *)raw_url;
     dbgf("Streaming URL %s", url);
     
-    if (!is_init) init();
+    if (!is_init()) init();
     
     curl_easy_reset(handle_curl);
     curl_easy_setopt(handle_curl, CURLOPT_URL, url);
@@ -98,18 +103,22 @@ void *stream_url(void *raw_url) {
     curl_easy_perform(handle_curl);
     
     free(raw_url);
-    
+    cancel_streaming_safely();
     return 0;
 }
 
 void init(void) {
-    pthread_mutex_init(&is_playing_mutex, NULL);
+    if (!mutex_init) {
+        pthread_mutex_init(&is_playing_mutex, NULL);
+        pthread_mutex_init(&is_init_mutex, NULL);
+        mutex_init = true;
+    }
     ao_initialize();
     mpg123_init();
     handle_mpg123 = mpg123_new(NULL, NULL);
     mpg123_open_feed(handle_mpg123);
     handle_curl = curl_easy_init();
-    is_init = true;
+    set_init(true);
 }
 
 
@@ -163,6 +172,19 @@ void set_playing(bool boolean) {
     pthread_mutex_lock(&is_playing_mutex);
     _is_playing = boolean;
     pthread_mutex_unlock(&is_playing_mutex);
+}
+
+bool is_init(void) {
+    pthread_mutex_lock(&is_init_mutex);
+    bool retval = _is_init;
+    pthread_mutex_unlock(&is_init_mutex);
+    return retval;
+}
+
+void set_init(bool boolean) {
+    pthread_mutex_lock(&is_init_mutex);
+    _is_init = boolean;
+    pthread_mutex_unlock(&is_init_mutex);
 }
 
 
