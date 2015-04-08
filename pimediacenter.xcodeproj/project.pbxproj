@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9245F041AD3125C00031CC6 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B9245F031AD3125C00031CC6 /* main.c */; };
 		B9A59E791ACE7B9300F9A180 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E781ACE7B9300F9A180 /* main.c */; };
 		B9A59E841ACE7E8200F9A180 /* logging.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E821ACE7E8200F9A180 /* logging.c */; };
 		B9A59E871ACE90B800F9A180 /* options.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E851ACE90B800F9A180 /* options.c */; };
@@ -17,6 +18,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		B9245EFF1AD3125C00031CC6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		B9A59E731ACE7B9300F9A180 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,6 +39,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B9245F011AD3125C00031CC6 /* radiochanger */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = radiochanger; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9245F031AD3125C00031CC6 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		B9245F091AD314D400031CC6 /* channels.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = channels.conf; sourceTree = "<group>"; };
 		B9A59E751ACE7B9300F9A180 /* pimediacenter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pimediacenter; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A59E781ACE7B9300F9A180 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		B9A59E821ACE7E8200F9A180 /* logging.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = logging.c; sourceTree = "<group>"; };
@@ -46,6 +59,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B9245EFE1AD3125C00031CC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9A59E721ACE7B9300F9A180 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,10 +76,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9245F021AD3125C00031CC6 /* radiochanger */ = {
+			isa = PBXGroup;
+			children = (
+				B9245F081AD3141B00031CC6 /* conf */,
+				B9245F031AD3125C00031CC6 /* main.c */,
+			);
+			path = radiochanger;
+			sourceTree = "<group>";
+		};
+		B9245F081AD3141B00031CC6 /* conf */ = {
+			isa = PBXGroup;
+			children = (
+				B9245F091AD314D400031CC6 /* channels.conf */,
+			);
+			path = conf;
+			sourceTree = "<group>";
+		};
 		B9A59E6C1ACE7B9300F9A180 = {
 			isa = PBXGroup;
 			children = (
 				B9A59E771ACE7B9300F9A180 /* pimediacenter */,
+				B9245F021AD3125C00031CC6 /* radiochanger */,
 				B9A59E761ACE7B9300F9A180 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				B9A59E751ACE7B9300F9A180 /* pimediacenter */,
+				B9245F011AD3125C00031CC6 /* radiochanger */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +142,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B9245F001AD3125C00031CC6 /* radiochanger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9245F051AD3125C00031CC6 /* Build configuration list for PBXNativeTarget "radiochanger" */;
+			buildPhases = (
+				B9245EFD1AD3125C00031CC6 /* Sources */,
+				B9245EFE1AD3125C00031CC6 /* Frameworks */,
+				B9245EFF1AD3125C00031CC6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = radiochanger;
+			productName = radiochanger;
+			productReference = B9245F011AD3125C00031CC6 /* radiochanger */;
+			productType = "com.apple.product-type.tool";
+		};
 		B9A59E741ACE7B9300F9A180 /* pimediacenter */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9A59E7C1ACE7B9300F9A180 /* Build configuration list for PBXNativeTarget "pimediacenter" */;
@@ -129,6 +185,9 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Jem Tucker";
 				TargetAttributes = {
+					B9245F001AD3125C00031CC6 = {
+						CreatedOnToolsVersion = 6.1;
+					};
 					B9A59E741ACE7B9300F9A180 = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -147,11 +206,20 @@
 			projectRoot = "";
 			targets = (
 				B9A59E741ACE7B9300F9A180 /* pimediacenter */,
+				B9245F001AD3125C00031CC6 /* radiochanger */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B9245EFD1AD3125C00031CC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9245F041AD3125C00031CC6 /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B9A59E711ACE7B9300F9A180 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,6 +237,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		B9245F061AD3125C00031CC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B9245F071AD3125C00031CC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		B9A59E7A1ACE7B9300F9A180 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -290,6 +376,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B9245F051AD3125C00031CC6 /* Build configuration list for PBXNativeTarget "radiochanger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9245F061AD3125C00031CC6 /* Debug */,
+				B9245F071AD3125C00031CC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B9A59E701ACE7B9300F9A180 /* Build configuration list for PBXProject "pimediacenter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -280,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pimediacenter/logging.c"
-            timestampString = "449837218.961529"
+            timestampString = "450034583.3987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "string_to_level()"
             landmarkType = "7">
          </BreakpointContent>
@@ -296,12 +296,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pimediacenter/piutil.c"
-            timestampString = "449926506.836537"
+            timestampString = "450034795.43527"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "uppercase_string()"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "copystring()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -312,11 +312,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pimediacenter/logging.c"
-            timestampString = "449837218.961529"
+            timestampString = "450034583.3987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "string_to_level()"
             landmarkType = "7">
          </BreakpointContent>
@@ -328,13 +328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pimediacenter/logging.c"
-            timestampString = "449837392.520897"
+            timestampString = "450034583.3987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "string_to_level()"
-            landmarkType = "7">
+            startingLineNumber = "125"
+            endingLineNumber = "125">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -428,6 +426,38 @@
             startingLineNumber = "96"
             endingLineNumber = "96"
             landmarkName = "stream_url()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pimediacenter/piutil.c"
+            timestampString = "450034727.393278"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "copystring()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "radiochanger/main.c"
+            timestampString = "450043245.215913"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "main()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

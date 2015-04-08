@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>radiochanger.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>B9245F001AD3125C00031CC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B9A59E741ACE7B9300F9A180</key>
 		<dict>
 			<key>primary</key>
