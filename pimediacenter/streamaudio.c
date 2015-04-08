@@ -47,7 +47,7 @@ int thread_stream_url(const char *url) {
         set_playing(false);
         
         while (is_init()) {
-            usleep(100);
+            usleep(500);
         }
         
         int err = pthread_cancel(thread_current);
@@ -82,6 +82,8 @@ int cancel_streaming_safely() {
     mpg123_delete(handle_mpg123);
     mpg123_exit();
     
+    // Error thrown if attempt to close but not started yet.
+    // Fix this
     ao_close(handle_aodevice);
     ao_shutdown();
     

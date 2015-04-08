@@ -55,3 +55,12 @@ int string_non_empty(const char *string) {
     if (strcmp("", string) != 0) return 1;
     else return 0;
 }
+
+void remove_char(char *string, char c) {
+    char *src, *dst;
+    for (src = dst = string; *src != '\0'; src++) {
+        *dst = *src;
+        if (*dst != c) dst++;
+    }
+    *dst = '\0';
+}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B9245F041AD3125C00031CC6 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B9245F031AD3125C00031CC6 /* main.c */; };
+		B9245F0C1AD5AD0500031CC6 /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = B9245F0A1AD5AD0500031CC6 /* cJSON.c */; };
 		B9A59E791ACE7B9300F9A180 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E781ACE7B9300F9A180 /* main.c */; };
 		B9A59E841ACE7E8200F9A180 /* logging.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E821ACE7E8200F9A180 /* logging.c */; };
 		B9A59E871ACE90B800F9A180 /* options.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E851ACE90B800F9A180 /* options.c */; };
@@ -42,6 +43,8 @@
 		B9245F011AD3125C00031CC6 /* radiochanger */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = radiochanger; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9245F031AD3125C00031CC6 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		B9245F091AD314D400031CC6 /* channels.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = channels.conf; sourceTree = "<group>"; };
+		B9245F0A1AD5AD0500031CC6 /* cJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
+		B9245F0B1AD5AD0500031CC6 /* cJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cJSON.h; sourceTree = "<group>"; };
 		B9A59E751ACE7B9300F9A180 /* pimediacenter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pimediacenter; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9A59E781ACE7B9300F9A180 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		B9A59E821ACE7E8200F9A180 /* logging.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = logging.c; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 		B9A59E911AD0121600F9A180 /* inc */ = {
 			isa = PBXGroup;
 			children = (
+				B9245F0A1AD5AD0500031CC6 /* cJSON.c */,
+				B9245F0B1AD5AD0500031CC6 /* cJSON.h */,
 				B9A59E8E1ACEAA8C00F9A180 /* mongoose.c */,
 				B9A59E8F1ACEAA8C00F9A180 /* mongoose.h */,
 			);
@@ -229,6 +234,7 @@
 				B9A59E791ACE7B9300F9A180 /* main.c in Sources */,
 				B9A59E871ACE90B800F9A180 /* options.c in Sources */,
 				B9A59E8D1ACEA91500F9A180 /* server.c in Sources */,
+				B9245F0C1AD5AD0500031CC6 /* cJSON.c in Sources */,
 				B9A59E901ACEAA8C00F9A180 /* mongoose.c in Sources */,
 				B9A59E841ACE7E8200F9A180 /* logging.c in Sources */,
 			);
@@ -383,6 +389,7 @@
 				B9245F071AD3125C00031CC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9A59E701ACE7B9300F9A180 /* Build configuration list for PBXProject "pimediacenter" */ = {
 			isa = XCConfigurationList;

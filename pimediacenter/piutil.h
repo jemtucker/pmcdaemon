@@ -18,5 +18,6 @@
 int copystring(const char *in, char *out);
 const char *uppercase_string(const char *string);
 int string_non_empty(const char *string);
+void remove_char(char *string, char c);
 
 #endif /* defined(__pimediacenter__piutil__) */
