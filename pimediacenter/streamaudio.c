@@ -42,39 +42,48 @@ int thread_stream_url(const char *url) {
     if (is_playing()) {
         dbg("A thread is already streaming, now stopping...");
         
-        // Stop then sleep to allow curl to pause and shutdown
-        // TODO horrible mem leak
         set_playing(false);
         
-        while (is_init()) {
-            usleep(500);
-        }
+        while (is_init()) {}
         
         int err = pthread_cancel(thread_current);
         
         if (err) {
-            // Thread not cancelled
             errf("Attempt to cancel thread failed with return value: %s", err);
             return err;
+        } else {
+            dbgf("Thread stopped successfully");
         }
     }
     
     set_playing(true);
     
-    // Mem leak and why + 1???
-    char *stored_url = malloc(strlen(url) + 1);
+    // Mem leak?
+    char *stored_url = malloc(strlen(url) * sizeof(char));
     
     strcpy(stored_url, url);
     
     dbg("Beggining streaming in new thread");
-    pthread_create(&thread_current, NULL, stream_url, stored_url);
-    dbg("Streaming started succesfully");
-    
-    return 0;
+    int e = pthread_create(&thread_current, NULL, stream_url, stored_url);
+    if (e == 0) {
+        dbg("Streaming started succesfully");
+        return 0;
+    } else if (e == EAGAIN) {
+        err("Could not create new thread because of a lack of system resources or the thread limit was reached");
+        return -1;
+    } else if (e == EINVAL) {
+        err("Could not create new thread because of invalid attributes");
+        return -1;
+    } else if (e == EPERM) {
+        err("Could not create new thread because of invalid permissions");
+        return -1;
+    } else {
+        return -2;
+    }
 }
 
 int cancel_streaming_safely() {
-    // TODO Mutext here
+    dbg("Cleaning up the current session...");
     
     curl_easy_cleanup(handle_curl);
     
@@ -82,13 +91,13 @@ int cancel_streaming_safely() {
     mpg123_delete(handle_mpg123);
     mpg123_exit();
     
-    // Error thrown if attempt to close but not started yet.
-    // Fix this
     ao_close(handle_aodevice);
     ao_shutdown();
     
     set_playing(false);
     set_init(false);
+    
+    dbg("Session cleaned successfully");
     
     return 0;
 }
@@ -144,14 +153,14 @@ size_t play_stream(void *buffer, size_t size, size_t nmeb, void *userp) {
             case MPG123_NEW_FORMAT:
                 mpg123_getformat(handle_mpg123, &rate, &chanels, &encoding);
                 format.bits = mpg123_encsize(encoding) * BITS_IN_BYTE;
-                format.rate = rate;
+                format.rate = (int) rate;
                 format.channels = chanels;
                 format.byte_format = AO_FMT_NATIVE;
                 format.matrix = 0;
                 handle_aodevice = ao_open_live(ao_default_driver_id(), &format, NULL);
                 break;
             case MPG123_OK:
-                ao_play(handle_aodevice, audio, done);
+                ao_play(handle_aodevice, (char *) audio, (u_int32_t) done);
                 break;
             case MPG123_NEED_MORE:
                 break;

@@ -10,8 +10,10 @@
 #include <curl/curl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 
-#define DEFAULT_PORT "8080"
+#define RC_DEFAULT_PORT "8080"
+#define RC_MAX_CHANNELS 10
 
 // Structures
 struct Channel {
@@ -21,10 +23,11 @@ struct Channel {
 
 // Functions
 void print_help(void);
+int load_channels(char *conf_file, struct Channel *channels);
 
 int main(int argc, char **argv) {
     char *path_to_config = NULL;
-    char *port = DEFAULT_PORT;
+    char *port = RC_DEFAULT_PORT;
     char opt;
     
     // Parse options
@@ -46,21 +49,49 @@ int main(int argc, char **argv) {
         }
     }
     
+    struct Channel *channels;
+    load_channels(path_to_config, channels);
+    char *temp = channels[0].url;
+    printf(temp);
     // Open channels.conf
     
     return 0;
 }
 
-int load_channels(char *conf_file, struct Channel *channels[]) {
-    FILE *conf;
-    conf = fopen(conf_file, "r");
-    int r, line = 0;
-    char *name, *url;
+int load_channels(char *conf_file, struct Channel *channels) {
+    channels = malloc(sizeof(struct Channel *) * RC_MAX_CHANNELS);
     
-    while ((r = fscanf(conf, "%s %s\n", name, url)) != EOF) {
-        
+    if (channels == NULL) {
+        printf("ERROR: Memory allocation failed");
+        return -1;
     }
     
+    struct Channel *t_channel;
+    FILE *conf;
+    conf = fopen(conf_file, "r");
+    int r, i = 0;
+    
+    // Errors if input string is longer than buffers
+    char name[10], url[100];
+    while ((r = fscanf(conf, "%s %s\n", name, url)) != EOF || i > RC_MAX_CHANNELS) {
+        t_channel = malloc(sizeof(struct Channel));
+        
+        if (t_channel == NULL) {
+            printf("ERROR: Memory allocation failed");
+            return -1;
+        }
+        
+        t_channel->url = malloc(strlen(url) * sizeof(int));
+        t_channel->name = malloc(strlen(name) * sizeof(int));
+        
+        strcpy(t_channel->url, url);
+        strcpy(t_channel->name, name);
+        
+        channels[i] = *t_channel;
+        i ++;
+    }
+    char *temp = channels[0].url;
+    printf("%s", temp);
     fclose(conf);
     return 0;
 }
