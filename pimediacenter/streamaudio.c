@@ -11,7 +11,6 @@
 #define BITS_IN_BYTE 8
 
 // Forward declarations
-
 mpg123_handle *handle_mpg123 = NULL;
 ao_device *handle_aodevice = NULL;
 CURL *handle_curl = NULL;
@@ -20,11 +19,17 @@ bool mutex_init = false;
 bool _is_playing = false;
 bool _is_init = false;
 
+char *current_url = NULL;
+pmc_playstate_t pmc_current_state = PMC_STATE_STOPPED;
+void set_current_state(pmc_playstate_t new_state);
+
 pthread_t thread_current;
 
 // Mutex
-pthread_mutex_t is_playing_mutex;
-pthread_mutex_t is_init_mutex;
+pthread_mutex_t is_playing_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t is_init_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t state_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t current_url_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 // Functions
 void *stream_url(void *raw_url);
@@ -41,13 +46,9 @@ void set_init(bool boolean);
 int thread_stream_url(const char *url) {
     if (is_playing()) {
         dbg("A thread is already streaming, now stopping...");
-        
         set_playing(false);
-        
         while (is_init()) {}
-        
         int err = pthread_cancel(thread_current);
-        
         if (err) {
             errf("Attempt to cancel thread failed with return value: %s", err);
             return err;
@@ -55,16 +56,13 @@ int thread_stream_url(const char *url) {
             dbgf("Thread stopped successfully");
         }
     }
-    
+    set_current_state(PMC_STATE_PLAYING_URI);
     set_playing(true);
-    
-    // Mem leak?
     char *stored_url = malloc(strlen(url) * sizeof(char));
-    
     strcpy(stored_url, url);
-    
     dbg("Beggining streaming in new thread");
     int e = pthread_create(&thread_current, NULL, stream_url, stored_url);
+    
     if (e == 0) {
         dbg("Streaming started succesfully");
         return 0;
@@ -94,6 +92,7 @@ int cancel_streaming_safely() {
     ao_close(handle_aodevice);
     ao_shutdown();
     
+    pmc_current_state = PMC_STATE_STOPPED;
     set_playing(false);
     set_init(false);
     
@@ -103,27 +102,24 @@ int cancel_streaming_safely() {
 }
 
 void *stream_url(void *raw_url) {
-    const char *url = (const char *)raw_url;
-    dbgf("Streaming URL %s", url);
+    current_url = (char *) raw_url;
+    dbgf("Streaming URL %s", current_url);
     
     if (!is_init()) init();
     
     curl_easy_reset(handle_curl);
-    curl_easy_setopt(handle_curl, CURLOPT_URL, url);
+    curl_easy_setopt(handle_curl, CURLOPT_URL, current_url);
     curl_easy_setopt(handle_curl, CURLOPT_WRITEFUNCTION, play_stream);
     curl_easy_perform(handle_curl);
     
+    set_current_state(PMC_STATE_STOPPED);
+    current_url = NULL;
     free(raw_url);
     cancel_streaming_safely();
     return 0;
 }
 
 void init(void) {
-    if (!mutex_init) {
-        pthread_mutex_init(&is_playing_mutex, NULL);
-        pthread_mutex_init(&is_init_mutex, NULL);
-        mutex_init = true;
-    }
     ao_initialize();
     mpg123_init();
     handle_mpg123 = mpg123_new(NULL, NULL);
@@ -131,6 +127,7 @@ void init(void) {
     handle_curl = curl_easy_init();
     set_init(true);
 }
+
 
 
 size_t play_stream(void *buffer, size_t size, size_t nmeb, void *userp) {
@@ -146,7 +143,6 @@ size_t play_stream(void *buffer, size_t size, size_t nmeb, void *userp) {
     
     mpg123_feed(handle_mpg123, buffer, size * nmeb);
     
-    // Stream loop;
     do {
         err = mpg123_decode_frame(handle_mpg123, &frame_offset, &audio, &done);
         switch (err) {
@@ -172,6 +168,31 @@ size_t play_stream(void *buffer, size_t size, size_t nmeb, void *userp) {
     return size * nmeb;
 }
 
+const char *now_playing(void) {
+    pmc_playstate_t s = current_state();
+    
+    switch (s) {
+        case PMC_STATE_STOPPED: {
+            char *retval = malloc(8 * sizeof(char));
+            retval = "Stopped";
+            return retval;
+        }
+        case PMC_STATE_PLAYING_URI: {
+            char *retval = malloc(strlen(current_url) * sizeof(char));
+            pthread_mutex_lock(&current_url_mutex);
+            strcpy(retval, current_url);
+            pthread_mutex_unlock(&current_url_mutex);
+            return retval;
+        }
+        default:{
+            char *retval = malloc(6 * sizeof(char));
+            retval = "ERROR";
+            return retval;
+        }
+    }
+}
+
+// Thread safe getters and setters
 bool is_playing(void) {
     pthread_mutex_lock(&is_playing_mutex);
     bool retval = _is_playing;
@@ -196,6 +217,19 @@ void set_init(bool boolean) {
     pthread_mutex_lock(&is_init_mutex);
     _is_init = boolean;
     pthread_mutex_unlock(&is_init_mutex);
+}
+
+pmc_playstate_t current_state(void) {
+    pthread_mutex_lock(&state_mutex);
+    pmc_playstate_t retval = pmc_current_state;
+    pthread_mutex_unlock(&state_mutex);
+    return retval;
+}
+
+void set_current_state(pmc_playstate_t new_state) {
+    pthread_mutex_lock(&state_mutex);
+    pmc_current_state = new_state;
+    pthread_mutex_unlock(&state_mutex);
 }
 
 

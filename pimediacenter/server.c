@@ -11,6 +11,7 @@
 #define PMC_DEFAULT_PORT "8087"
 
 #define PMC_API_NEWSTATION "/api/newstation"
+#define PMC_API_NOWPLAYING "/api/nowplaying"
 #define PMC_API_PLAY "/api/play"
 #define PMC_API_STOP "/api/stop"
 
@@ -18,7 +19,7 @@ const char *PMC_LISTENING_PORT = PMC_DEFAULT_PORT;
 bool server_running = false;
 
 static int event_handler(struct mg_connection *conn, enum mg_event ev);
-int process_post_request(struct mg_connection *conn);
+int pmc_process_request(struct mg_connection *conn);
 int parse_radio_station_JSON(char *jsontext);
 int get_json_from_string(const char *string, char *buffer);
 
@@ -38,33 +39,31 @@ static int event_handler(struct mg_connection *conn, enum mg_event ev) {
         case MG_AUTH:
             return MG_TRUE;
             
-        case MG_REQUEST:
-            // TODO handle POST vs GET
-            if (!strcmp(conn->request_method, "POST")) {
-                int err = process_post_request(conn);
-                if (err != 0)
-                    errf("Failed to process request.");
-            }
+        case MG_REQUEST: {
+            int error = pmc_process_request(conn);
+            if (error != 0)
+                errf("Failed to process request.");
             return MG_TRUE;
+        }
             
         default:
             return MG_FALSE;
     }
 }
 
-int process_post_request(struct mg_connection *conn) {
-    mg_printf_data(conn, "Processing requested URI [%s] \n", conn->uri);
+int pmc_process_request(struct mg_connection *conn) {
     dbgf("Recived request to [%s]", conn->uri);
-    
     if (!strcmp(conn->uri, PMC_API_NEWSTATION)) {
         int err = parse_radio_station_JSON(conn->content);
+        mg_printf_data(conn, "Processing requested URI [%s] \n", conn->uri);
         return err;
-    } else if (!strcmp(conn->uri, PMC_API_PLAY)) {
-        // TODO
+    } else if (!strcmp(conn->uri, PMC_API_NOWPLAYING)) {
+        const char *np = now_playing();
+        mg_printf_data(conn, "Currently playing [%s] \n", np);
+        dbgf("Currently playing %s", np);
     } else if (!strcmp(conn->uri, PMC_API_STOP)) {
         // TODO
     }
-    
     return 0;
 }
 

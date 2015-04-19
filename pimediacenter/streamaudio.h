@@ -19,7 +19,16 @@
 
 #include "logging.h"
 
+typedef enum {
+    PMC_STATE_PLAYING_URI,
+    PMC_STATE_PAUSE,
+    PMC_STATE_STOPPED
+} pmc_playstate_t;
+
+pmc_playstate_t current_state(void);
+
 bool is_playing(void);
 int thread_stream_url(const char *url);
+const char *now_playing(void);
 
 #endif /* defined(__pimediacenter__audio__) */

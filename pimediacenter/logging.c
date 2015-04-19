@@ -76,7 +76,7 @@ void set_log_level(const char *level) {
     MAX_LEVEL_TO_LOG = string_to_level(level);
     const char * uppercase_level = uppercase_string(level);
     dbgf("Setting MAX_LEVEL_TO_LOG to %s.", uppercase_level);
-    free(uppercase_level);
+    free((void *) uppercase_level);
 }
 
 void log_message(const char *message, const char *level) {
@@ -113,7 +113,7 @@ logging_level_t string_to_level(const char *level) {
         errf("Logging level %s could not be recognised.", level);
        retval = -1;
     }
-    free(uppercase_level);
+    free((void *) uppercase_level);
     return retval;
 }
 
