@@ -8,7 +8,7 @@
 
 #include "logging.h"
 
-#define TIME_LENGTH 20
+#define TIME_LENGTH 16
 
 // Maximum level to log to, all levels below are ignored.
 // Default to lowest.
@@ -92,6 +92,7 @@ void get_log_time(char *out) {
     for (int i = 4; i < 19; i++) {
         out[i - 4] = time[i];
     }
+    out[TIME_LENGTH - 1] = 0;
 }
 
 void level_to_string(logging_level_t lvl, char *out) {

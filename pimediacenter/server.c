@@ -51,6 +51,7 @@ static int event_handler(struct mg_connection *conn, enum mg_event ev) {
     }
 }
 
+
 int pmc_process_request(struct mg_connection *conn) {
     dbgf("Recived request to [%s]", conn->uri);
     if (!strcmp(conn->uri, PMC_API_NEWSTATION)) {
@@ -92,11 +93,12 @@ int run_server(void) {
 }
 
 int parse_radio_station_JSON(char *jsontext) {
+    printf("%s\n", jsontext);
     char *out;
     cJSON *json, *station_url;
     json = cJSON_Parse(jsontext);
     if (!json) {
-        dbgf("Error before: [%s]", cJSON_GetErrorPtr());
+        dbgf("Error before: \n%s", cJSON_GetErrorPtr());
         return -1;
     } else {
         station_url = cJSON_GetObjectItem(json, "uri");

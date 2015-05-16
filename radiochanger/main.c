@@ -23,7 +23,7 @@ struct Channel {
 
 // Functions
 void print_help(void);
-int load_channels(char *conf_file, struct Channel *channels);
+struct Channel *load_channels(char *conf_filechannels);
 
 int main(int argc, char **argv) {
     char *path_to_config = NULL;
@@ -49,22 +49,19 @@ int main(int argc, char **argv) {
         }
     }
     
-    struct Channel *channels;
-    load_channels(path_to_config, channels);
-    char *temp = channels[0].url;
-    printf(temp);
+    struct Channel *channels = load_channels(path_to_config);
+    int channels_length = (int) channels - 1;
+    for (int i = 0; i < channels_length; i ++) {
+        printf("Name: %s URL: %s\n", channels[i].name, channels[i].url);
+    }
     // Open channels.conf
     
     return 0;
 }
 
-int load_channels(char *conf_file, struct Channel *channels) {
-    channels = malloc(sizeof(struct Channel *) * RC_MAX_CHANNELS);
-    
-    if (channels == NULL) {
-        printf("ERROR: Memory allocation failed");
-        return -1;
-    }
+struct Channel *load_channels(char *conf_file) {
+    // Make memory allocation dynamic with no max channels
+    struct Channel *channels = malloc(sizeof(struct Channel *) * RC_MAX_CHANNELS);
     
     struct Channel *t_channel;
     FILE *conf;
@@ -76,13 +73,8 @@ int load_channels(char *conf_file, struct Channel *channels) {
     while ((r = fscanf(conf, "%s %s\n", name, url)) != EOF || i > RC_MAX_CHANNELS) {
         t_channel = malloc(sizeof(struct Channel));
         
-        if (t_channel == NULL) {
-            printf("ERROR: Memory allocation failed");
-            return -1;
-        }
-        
-        t_channel->url = malloc(strlen(url) * sizeof(int));
-        t_channel->name = malloc(strlen(name) * sizeof(int));
+        t_channel->url = malloc(strlen(url) * sizeof(char));
+        t_channel->name = malloc(strlen(name) * sizeof(char));
         
         strcpy(t_channel->url, url);
         strcpy(t_channel->name, name);
@@ -90,10 +82,8 @@ int load_channels(char *conf_file, struct Channel *channels) {
         channels[i] = *t_channel;
         i ++;
     }
-    char *temp = channels[0].url;
-    printf("%s", temp);
     fclose(conf);
-    return 0;
+    return channels;
 }
 
 void print_help(void) {
