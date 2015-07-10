@@ -16,6 +16,26 @@
 		B9A59E8D1ACEA91500F9A180 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E8B1ACEA91500F9A180 /* server.c */; };
 		B9A59E901ACEAA8C00F9A180 /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E8E1ACEAA8C00F9A180 /* mongoose.c */; };
 		B9A59E941AD0141200F9A180 /* streamaudio.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E921AD0141200F9A180 /* streamaudio.c */; };
+		B9D9CD691B1B0FAA00F3D578 /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD5D1B1B0FAA00F3D578 /* Buffer.cpp */; };
+		B9D9CD6A1B1B0FAA00F3D578 /* Configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD5F1B1B0FAA00F3D578 /* Configuration.cpp */; };
+		B9D9CD6B1B1B0FAA00F3D578 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD611B1B0FAA00F3D578 /* main.cpp */; };
+		B9D9CD6C1B1B0FAA00F3D578 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD621B1B0FAA00F3D578 /* Player.cpp */; };
+		B9D9CD6D1B1B0FAA00F3D578 /* Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD641B1B0FAA00F3D578 /* Properties.cpp */; };
+		B9D9CD6E1B1B0FAA00F3D578 /* Station.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD661B1B0FAA00F3D578 /* Station.cpp */; };
+		B9D9CD711B1B0FB200F3D578 /* streamaudio.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E921AD0141200F9A180 /* streamaudio.c */; };
+		B9D9CD721B1B0FB200F3D578 /* piutil.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E881ACE9D7500F9A180 /* piutil.c */; };
+		B9D9CD731B1B0FB200F3D578 /* Station.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD661B1B0FAA00F3D578 /* Station.cpp */; };
+		B9D9CD741B1B0FB200F3D578 /* Configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD5F1B1B0FAA00F3D578 /* Configuration.cpp */; };
+		B9D9CD751B1B0FB200F3D578 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E781ACE7B9300F9A180 /* main.c */; };
+		B9D9CD761B1B0FB200F3D578 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD611B1B0FAA00F3D578 /* main.cpp */; };
+		B9D9CD771B1B0FB200F3D578 /* options.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E851ACE90B800F9A180 /* options.c */; };
+		B9D9CD781B1B0FB200F3D578 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E8B1ACEA91500F9A180 /* server.c */; };
+		B9D9CD791B1B0FB200F3D578 /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = B9245F0A1AD5AD0500031CC6 /* cJSON.c */; };
+		B9D9CD7A1B1B0FB200F3D578 /* Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD641B1B0FAA00F3D578 /* Properties.cpp */; };
+		B9D9CD7B1B1B0FB200F3D578 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD621B1B0FAA00F3D578 /* Player.cpp */; };
+		B9D9CD7C1B1B0FB200F3D578 /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E8E1ACEAA8C00F9A180 /* mongoose.c */; };
+		B9D9CD7D1B1B0FB200F3D578 /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD5D1B1B0FAA00F3D578 /* Buffer.cpp */; };
+		B9D9CD7E1B1B0FB200F3D578 /* logging.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A59E821ACE7E8200F9A180 /* logging.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +49,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		B9A59E731ACE7B9300F9A180 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		B9D9CD801B1B0FB200F3D578 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -59,6 +88,19 @@
 		B9A59E8F1ACEAA8C00F9A180 /* mongoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongoose.h; sourceTree = "<group>"; };
 		B9A59E921AD0141200F9A180 /* streamaudio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = streamaudio.c; sourceTree = "<group>"; };
 		B9A59E931AD0141200F9A180 /* streamaudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = streamaudio.h; sourceTree = "<group>"; };
+		B9D9CD5D1B1B0FAA00F3D578 /* Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buffer.cpp; sourceTree = "<group>"; };
+		B9D9CD5E1B1B0FAA00F3D578 /* Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buffer.h; sourceTree = "<group>"; };
+		B9D9CD5F1B1B0FAA00F3D578 /* Configuration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Configuration.cpp; sourceTree = "<group>"; };
+		B9D9CD601B1B0FAA00F3D578 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
+		B9D9CD611B1B0FAA00F3D578 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B9D9CD621B1B0FAA00F3D578 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		B9D9CD631B1B0FAA00F3D578 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		B9D9CD641B1B0FAA00F3D578 /* Properties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Properties.cpp; sourceTree = "<group>"; };
+		B9D9CD651B1B0FAA00F3D578 /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
+		B9D9CD661B1B0FAA00F3D578 /* Station.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Station.cpp; sourceTree = "<group>"; };
+		B9D9CD671B1B0FAA00F3D578 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
+		B9D9CD681B1B0FAA00F3D578 /* stations.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stations.conf; sourceTree = "<group>"; };
+		B9D9CD841B1B0FB200F3D578 /* pmcdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pmcdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +112,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B9A59E721ACE7B9300F9A180 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9D9CD7F1B1B0FB200F3D578 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -99,6 +148,7 @@
 		B9A59E6C1ACE7B9300F9A180 = {
 			isa = PBXGroup;
 			children = (
+				B9D9CD5C1B1B0FAA00F3D578 /* pmcdaemon */,
 				B9A59E771ACE7B9300F9A180 /* pimediacenter */,
 				B9245F021AD3125C00031CC6 /* radiochanger */,
 				B9A59E761ACE7B9300F9A180 /* Products */,
@@ -110,6 +160,7 @@
 			children = (
 				B9A59E751ACE7B9300F9A180 /* pimediacenter */,
 				B9245F011AD3125C00031CC6 /* radiochanger */,
+				B9D9CD841B1B0FB200F3D578 /* pmcdaemon */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +193,25 @@
 				B9A59E8F1ACEAA8C00F9A180 /* mongoose.h */,
 			);
 			name = inc;
+			sourceTree = "<group>";
+		};
+		B9D9CD5C1B1B0FAA00F3D578 /* pmcdaemon */ = {
+			isa = PBXGroup;
+			children = (
+				B9D9CD5D1B1B0FAA00F3D578 /* Buffer.cpp */,
+				B9D9CD5E1B1B0FAA00F3D578 /* Buffer.h */,
+				B9D9CD5F1B1B0FAA00F3D578 /* Configuration.cpp */,
+				B9D9CD601B1B0FAA00F3D578 /* Configuration.h */,
+				B9D9CD611B1B0FAA00F3D578 /* main.cpp */,
+				B9D9CD621B1B0FAA00F3D578 /* Player.cpp */,
+				B9D9CD631B1B0FAA00F3D578 /* Player.h */,
+				B9D9CD641B1B0FAA00F3D578 /* Properties.cpp */,
+				B9D9CD651B1B0FAA00F3D578 /* Properties.h */,
+				B9D9CD661B1B0FAA00F3D578 /* Station.cpp */,
+				B9D9CD671B1B0FAA00F3D578 /* Station.h */,
+				B9D9CD681B1B0FAA00F3D578 /* stations.conf */,
+			);
+			path = pmcdaemon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +251,23 @@
 			productReference = B9A59E751ACE7B9300F9A180 /* pimediacenter */;
 			productType = "com.apple.product-type.tool";
 		};
+		B9D9CD6F1B1B0FB200F3D578 /* pmcdaemon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9D9CD811B1B0FB200F3D578 /* Build configuration list for PBXNativeTarget "pmcdaemon" */;
+			buildPhases = (
+				B9D9CD701B1B0FB200F3D578 /* Sources */,
+				B9D9CD7F1B1B0FB200F3D578 /* Frameworks */,
+				B9D9CD801B1B0FB200F3D578 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pmcdaemon;
+			productName = PiPlayer;
+			productReference = B9D9CD841B1B0FB200F3D578 /* pmcdaemon */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -212,6 +299,7 @@
 			targets = (
 				B9A59E741ACE7B9300F9A180 /* pimediacenter */,
 				B9245F001AD3125C00031CC6 /* radiochanger */,
+				B9D9CD6F1B1B0FB200F3D578 /* pmcdaemon */,
 			);
 		};
 /* End PBXProject section */
@@ -231,12 +319,39 @@
 			files = (
 				B9A59E941AD0141200F9A180 /* streamaudio.c in Sources */,
 				B9A59E8A1ACE9D7500F9A180 /* piutil.c in Sources */,
+				B9D9CD6E1B1B0FAA00F3D578 /* Station.cpp in Sources */,
+				B9D9CD6A1B1B0FAA00F3D578 /* Configuration.cpp in Sources */,
 				B9A59E791ACE7B9300F9A180 /* main.c in Sources */,
+				B9D9CD6B1B1B0FAA00F3D578 /* main.cpp in Sources */,
 				B9A59E871ACE90B800F9A180 /* options.c in Sources */,
 				B9A59E8D1ACEA91500F9A180 /* server.c in Sources */,
 				B9245F0C1AD5AD0500031CC6 /* cJSON.c in Sources */,
+				B9D9CD6D1B1B0FAA00F3D578 /* Properties.cpp in Sources */,
+				B9D9CD6C1B1B0FAA00F3D578 /* Player.cpp in Sources */,
 				B9A59E901ACEAA8C00F9A180 /* mongoose.c in Sources */,
+				B9D9CD691B1B0FAA00F3D578 /* Buffer.cpp in Sources */,
 				B9A59E841ACE7E8200F9A180 /* logging.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9D9CD701B1B0FB200F3D578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9D9CD711B1B0FB200F3D578 /* streamaudio.c in Sources */,
+				B9D9CD721B1B0FB200F3D578 /* piutil.c in Sources */,
+				B9D9CD731B1B0FB200F3D578 /* Station.cpp in Sources */,
+				B9D9CD741B1B0FB200F3D578 /* Configuration.cpp in Sources */,
+				B9D9CD751B1B0FB200F3D578 /* main.c in Sources */,
+				B9D9CD761B1B0FB200F3D578 /* main.cpp in Sources */,
+				B9D9CD771B1B0FB200F3D578 /* options.c in Sources */,
+				B9D9CD781B1B0FB200F3D578 /* server.c in Sources */,
+				B9D9CD791B1B0FB200F3D578 /* cJSON.c in Sources */,
+				B9D9CD7A1B1B0FB200F3D578 /* Properties.cpp in Sources */,
+				B9D9CD7B1B1B0FB200F3D578 /* Player.cpp in Sources */,
+				B9D9CD7C1B1B0FB200F3D578 /* mongoose.c in Sources */,
+				B9D9CD7D1B1B0FB200F3D578 /* Buffer.cpp in Sources */,
+				B9D9CD7E1B1B0FB200F3D578 /* logging.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +494,50 @@
 			};
 			name = Release;
 		};
+		B9D9CD821B1B0FB200F3D578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/Cellar/libao/1.2.0/include,
+					/usr/local/Cellar/mpg123/1.21.0/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/libao/1.2.0/lib,
+					/usr/local/Cellar/mpg123/1.21.0/lib,
+				);
+				OTHER_LDFLAGS = (
+					"-lao",
+					"-lmpg123",
+					"-lcurl",
+				);
+				PRODUCT_NAME = pmcdaemon;
+			};
+			name = Debug;
+		};
+		B9D9CD831B1B0FB200F3D578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/Cellar/libao/1.2.0/include,
+					/usr/local/Cellar/mpg123/1.21.0/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/libao/1.2.0/lib,
+					/usr/local/Cellar/mpg123/1.21.0/lib,
+				);
+				OTHER_LDFLAGS = (
+					"-lao",
+					"-lmpg123",
+					"-lcurl",
+				);
+				PRODUCT_NAME = pmcdaemon;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -405,6 +564,15 @@
 			buildConfigurations = (
 				B9A59E7D1ACE7B9300F9A180 /* Debug */,
 				B9A59E7E1ACE7B9300F9A180 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9D9CD811B1B0FB200F3D578 /* Build configuration list for PBXNativeTarget "pmcdaemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9D9CD821B1B0FB200F3D578 /* Debug */,
+				B9D9CD831B1B0FB200F3D578 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

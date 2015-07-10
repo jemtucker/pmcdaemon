@@ -9,6 +9,21 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>pimediacenter copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>pmcdaemon.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>radiochanger copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>radiochanger.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +38,16 @@
 			<true/>
 		</dict>
 		<key>B9A59E741ACE7B9300F9A180</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B9D9CD511B1B0F1A00F3D578</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B9D9CD6F1B1B0FB200F3D578</key>
 		<dict>
 			<key>primary</key>
 			<true/>

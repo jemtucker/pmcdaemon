@@ -1,0 +1,392 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B9D3BE6B1B4825AC0032BD64 /* CivetServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE681B4825AC0032BD64 /* CivetServer.cpp */; };
+		B9D3BE6C1B4825AC0032BD64 /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE691B4825AC0032BD64 /* civetweb.c */; };
+		B9D3BE731B4826380032BD64 /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE711B4826380032BD64 /* Server.cpp */; };
+		B9D3BE7C1B4864DD0032BD64 /* Handlers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE7A1B4864DD0032BD64 /* Handlers.cpp */; };
+		B9D3BE8A1B4922A50032BD64 /* StationRequestHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE881B4922A50032BD64 /* StationRequestHandler.cpp */; };
+		B9D3BE911B4938F70032BD64 /* StationIdRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE8F1B4938F70032BD64 /* StationIdRequest.cpp */; };
+		B9D9CD921B1B111D00F3D578 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD911B1B111D00F3D578 /* main.cpp */; };
+		B9D9CDB51B1B118D00F3D578 /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAA1B1B118D00F3D578 /* Buffer.cpp */; };
+		B9D9CDB61B1B118D00F3D578 /* Configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAC1B1B118D00F3D578 /* Configuration.cpp */; };
+		B9D9CDB71B1B118D00F3D578 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAE1B1B118D00F3D578 /* Player.cpp */; };
+		B9D9CDB81B1B118D00F3D578 /* Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDB01B1B118D00F3D578 /* Properties.cpp */; };
+		B9D9CDB91B1B118D00F3D578 /* Station.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDB21B1B118D00F3D578 /* Station.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B9D9CD8C1B1B111D00F3D578 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B9D3BE681B4825AC0032BD64 /* CivetServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CivetServer.cpp; sourceTree = "<group>"; };
+		B9D3BE691B4825AC0032BD64 /* civetweb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = civetweb.c; sourceTree = "<group>"; };
+		B9D3BE6A1B4825AC0032BD64 /* md5.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = md5.inl; sourceTree = "<group>"; };
+		B9D3BE6D1B4825BD0032BD64 /* CivetServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CivetServer.h; sourceTree = "<group>"; };
+		B9D3BE6E1B4825BD0032BD64 /* civetweb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = civetweb.h; sourceTree = "<group>"; };
+		B9D3BE711B4826380032BD64 /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Server.cpp; sourceTree = "<group>"; };
+		B9D3BE721B4826380032BD64 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		B9D3BE7A1B4864DD0032BD64 /* Handlers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handlers.cpp; sourceTree = "<group>"; };
+		B9D3BE7B1B4864DD0032BD64 /* Handlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Handlers.h; sourceTree = "<group>"; };
+		B9D3BE861B4921CA0032BD64 /* RequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandler.h; sourceTree = "<group>"; };
+		B9D3BE881B4922A50032BD64 /* StationRequestHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StationRequestHandler.cpp; sourceTree = "<group>"; };
+		B9D3BE891B4922A50032BD64 /* StationRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationRequestHandler.h; sourceTree = "<group>"; };
+		B9D3BE8D1B49242B0032BD64 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		B9D3BE8F1B4938F70032BD64 /* StationIdRequest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StationIdRequest.cpp; sourceTree = "<group>"; };
+		B9D3BE901B4938F70032BD64 /* StationIdRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationIdRequest.h; sourceTree = "<group>"; };
+		B9D9CD8E1B1B111D00F3D578 /* pmcdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pmcdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9D9CD911B1B111D00F3D578 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B9D9CDAA1B1B118D00F3D578 /* Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buffer.cpp; sourceTree = "<group>"; };
+		B9D9CDAB1B1B118D00F3D578 /* Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buffer.h; sourceTree = "<group>"; };
+		B9D9CDAC1B1B118D00F3D578 /* Configuration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Configuration.cpp; sourceTree = "<group>"; };
+		B9D9CDAD1B1B118D00F3D578 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
+		B9D9CDAE1B1B118D00F3D578 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		B9D9CDAF1B1B118D00F3D578 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		B9D9CDB01B1B118D00F3D578 /* Properties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Properties.cpp; sourceTree = "<group>"; };
+		B9D9CDB11B1B118D00F3D578 /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
+		B9D9CDB21B1B118D00F3D578 /* Station.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Station.cpp; sourceTree = "<group>"; };
+		B9D9CDB31B1B118D00F3D578 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
+		B9D9CDB41B1B118D00F3D578 /* stations.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stations.conf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9D9CD8B1B1B111D00F3D578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B9D3BE631B4803150032BD64 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				B9D9CDB41B1B118D00F3D578 /* stations.conf */,
+				B9D9CDB21B1B118D00F3D578 /* Station.cpp */,
+				B9D9CDB31B1B118D00F3D578 /* Station.h */,
+				B9D9CDAC1B1B118D00F3D578 /* Configuration.cpp */,
+				B9D9CDAD1B1B118D00F3D578 /* Configuration.h */,
+				B9D9CDAE1B1B118D00F3D578 /* Player.cpp */,
+				B9D9CDAF1B1B118D00F3D578 /* Player.h */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		B9D3BE651B4803680032BD64 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B9D9CDB01B1B118D00F3D578 /* Properties.cpp */,
+				B9D9CDB11B1B118D00F3D578 /* Properties.h */,
+				B9D9CDAA1B1B118D00F3D578 /* Buffer.cpp */,
+				B9D9CDAB1B1B118D00F3D578 /* Buffer.h */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		B9D3BE671B481DE20032BD64 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				B9D3BE811B49209E0032BD64 /* Handlers */,
+				B9D3BE6F1B4826030032BD64 /* Civet */,
+				B9D3BE711B4826380032BD64 /* Server.cpp */,
+				B9D3BE721B4826380032BD64 /* Server.h */,
+				B9D3BE7A1B4864DD0032BD64 /* Handlers.cpp */,
+				B9D3BE7B1B4864DD0032BD64 /* Handlers.h */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		B9D3BE6F1B4826030032BD64 /* Civet */ = {
+			isa = PBXGroup;
+			children = (
+				B9D3BE691B4825AC0032BD64 /* civetweb.c */,
+				B9D3BE6E1B4825BD0032BD64 /* civetweb.h */,
+				B9D3BE681B4825AC0032BD64 /* CivetServer.cpp */,
+				B9D3BE6D1B4825BD0032BD64 /* CivetServer.h */,
+				B9D3BE6A1B4825AC0032BD64 /* md5.inl */,
+			);
+			name = Civet;
+			sourceTree = "<group>";
+		};
+		B9D3BE811B49209E0032BD64 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				B9D3BE8B1B4923FF0032BD64 /* Requests */,
+				B9D3BE861B4921CA0032BD64 /* RequestHandler.h */,
+				B9D3BE881B4922A50032BD64 /* StationRequestHandler.cpp */,
+				B9D3BE891B4922A50032BD64 /* StationRequestHandler.h */,
+			);
+			name = Handlers;
+			sourceTree = "<group>";
+		};
+		B9D3BE8B1B4923FF0032BD64 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B9D3BE8D1B49242B0032BD64 /* Request.h */,
+				B9D3BE8F1B4938F70032BD64 /* StationIdRequest.cpp */,
+				B9D3BE901B4938F70032BD64 /* StationIdRequest.h */,
+			);
+			name = Requests;
+			sourceTree = "<group>";
+		};
+		B9D9CD851B1B111D00F3D578 = {
+			isa = PBXGroup;
+			children = (
+				B9D9CD901B1B111D00F3D578 /* pmcdaemon */,
+				B9D9CD8F1B1B111D00F3D578 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B9D9CD8F1B1B111D00F3D578 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9D9CD8E1B1B111D00F3D578 /* pmcdaemon */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9D9CD901B1B111D00F3D578 /* pmcdaemon */ = {
+			isa = PBXGroup;
+			children = (
+				B9D3BE671B481DE20032BD64 /* Server */,
+				B9D3BE651B4803680032BD64 /* Util */,
+				B9D3BE631B4803150032BD64 /* Player */,
+				B9D9CD911B1B111D00F3D578 /* main.cpp */,
+			);
+			path = pmcdaemon;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B9D9CD8D1B1B111D00F3D578 /* pmcdaemon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9D9CD951B1B111D00F3D578 /* Build configuration list for PBXNativeTarget "pmcdaemon" */;
+			buildPhases = (
+				B9D9CD8A1B1B111D00F3D578 /* Sources */,
+				B9D9CD8B1B1B111D00F3D578 /* Frameworks */,
+				B9D9CD8C1B1B111D00F3D578 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pmcdaemon;
+			productName = pmcdaemon;
+			productReference = B9D9CD8E1B1B111D00F3D578 /* pmcdaemon */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9D9CD861B1B111D00F3D578 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Jem Tucker";
+				TargetAttributes = {
+					B9D9CD8D1B1B111D00F3D578 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = B9D9CD891B1B111D00F3D578 /* Build configuration list for PBXProject "pmcdaemon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B9D9CD851B1B111D00F3D578;
+			productRefGroup = B9D9CD8F1B1B111D00F3D578 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9D9CD8D1B1B111D00F3D578 /* pmcdaemon */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9D9CD8A1B1B111D00F3D578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9D9CDB81B1B118D00F3D578 /* Properties.cpp in Sources */,
+				B9D3BE6B1B4825AC0032BD64 /* CivetServer.cpp in Sources */,
+				B9D9CDB71B1B118D00F3D578 /* Player.cpp in Sources */,
+				B9D9CD921B1B111D00F3D578 /* main.cpp in Sources */,
+				B9D3BE731B4826380032BD64 /* Server.cpp in Sources */,
+				B9D3BE6C1B4825AC0032BD64 /* civetweb.c in Sources */,
+				B9D9CDB61B1B118D00F3D578 /* Configuration.cpp in Sources */,
+				B9D3BE7C1B4864DD0032BD64 /* Handlers.cpp in Sources */,
+				B9D9CDB91B1B118D00F3D578 /* Station.cpp in Sources */,
+				B9D9CDB51B1B118D00F3D578 /* Buffer.cpp in Sources */,
+				B9D3BE8A1B4922A50032BD64 /* StationRequestHandler.cpp in Sources */,
+				B9D3BE911B4938F70032BD64 /* StationIdRequest.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B9D9CD931B1B111D00F3D578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B9D9CD941B1B111D00F3D578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B9D9CD961B1B111D00F3D578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/Cellar/mpg123/1.21.0/include,
+					/usr/local/Cellar/libao/1.2.0/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/mpg123/1.21.0/lib,
+					/usr/local/Cellar/libao/1.2.0/lib,
+				);
+				OTHER_LDFLAGS = (
+					"-lao",
+					"-lcurl",
+					"-lmpg123",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B9D9CD971B1B111D00F3D578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/Cellar/mpg123/1.21.0/include,
+					/usr/local/Cellar/libao/1.2.0/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/mpg123/1.21.0/lib,
+					/usr/local/Cellar/libao/1.2.0/lib,
+				);
+				OTHER_LDFLAGS = (
+					"-lao",
+					"-lcurl",
+					"-lmpg123",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B9D9CD891B1B111D00F3D578 /* Build configuration list for PBXProject "pmcdaemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9D9CD931B1B111D00F3D578 /* Debug */,
+				B9D9CD941B1B111D00F3D578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9D9CD951B1B111D00F3D578 /* Build configuration list for PBXNativeTarget "pmcdaemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9D9CD961B1B111D00F3D578 /* Debug */,
+				B9D9CD971B1B111D00F3D578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B9D9CD861B1B111D00F3D578 /* Project object */;
+}
