@@ -29,8 +29,9 @@ class Player {
     
     /* Properties */
     std::unique_ptr<Configuration> configuration;
-    std::unique_ptr<std::string> currentUrl;
     std::unique_ptr<std::thread> playThread;
+    
+    std::string currentUrl;
     
     Status status = STOPPED;
     
@@ -51,7 +52,7 @@ public:
     Player(Configuration *);
     
     /* Playing methods */
-    void play(std::string *);
+    void play(std::string &);
     void play(int);
     void play();
     void stop();

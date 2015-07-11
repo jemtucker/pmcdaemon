@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
     
     
     std::string test = "http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p";
-    player->play(&test);
+    player->play(test);
     
     usleep(30000 * 1000);
     

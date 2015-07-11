@@ -7,6 +7,7 @@
 //
 
 #include "Handlers.h"
+#include <iostream>
 
 #define QUERY_ID "id="
 
@@ -26,6 +27,10 @@ bool RadioHandler::handlePost(CivetServer *server, struct mg_connection *conn) {
 bool RadioHandler::processQuery(const char *query) {
     std::string string(query);
     std::string idString = string.substr(strlen(QUERY_ID));
-    player->play(stoi(idString));
+    int id = std::stoi(idString);
+    std::cout << "Recieved request to play station: "
+              << id
+              << std::endl;
+    player->play(id);
     return true;
 }

@@ -12,12 +12,12 @@
 #define DEFAULT_URL 0
 
 Player::Player(Configuration *conf): configuration(conf),
-currentUrl(configuration->getUrl(DEFAULT_URL)) {}
+    currentUrl(*configuration->getUrl(DEFAULT_URL)) {}
 
 
 /* Playing methods */
 
-void Player::play(std::string *url) {
+void Player::play(std::string &url) {
     while (getStatus() == PLAYING) stop();
     setStatus(PLAYING);
     
@@ -27,20 +27,21 @@ void Player::play(std::string *url) {
     mh = mpg123_new(NULL, NULL);
     mpg123_open_feed(mh);
     
-    curl_easy_init();
+    curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &Player::static_play_stream);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);
-    curl_easy_setopt(curl, CURLOPT_URL, url->c_str());
+    curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
     
     playThread.reset(new std::thread(&curl_easy_perform, curl));
 }
 
 void Player::play(int stationId) {
-    play(configuration->getUrl(stationId));
+    std::string url = *configuration->getUrl(stationId);
+    play(url);
 }
 
 void Player::play() {
-    play(currentUrl.get());
+    play(currentUrl);
 }
 
 void Player::stop() {
@@ -61,7 +62,8 @@ void Player::stop() {
 /* Callbacks for curl */
 
 size_t Player::play_stream(void *buffer, size_t size, size_t nmemb, void *userp) {
-    if (static_cast<Player *>(userp)->status == STOPPED) return CURL_READFUNC_ABORT;
+    if (static_cast<Player *>(userp)->status == STOPPED)
+        return CURL_READFUNC_ABORT;
     
     int err;
     off_t frame_offset;
