@@ -16,7 +16,7 @@ Server::Server(Player *p) {
     };
     
     settings.civetOptions = options;
-    settings.workInterval = std::chrono::duration<long, std::milli>(1000);
+    settings.workInterval = std::chrono::milliseconds(1000);
     
     std::unique_ptr<CivetServer> cs(new CivetServer(settings.civetOptions));
     server = std::move(cs);
