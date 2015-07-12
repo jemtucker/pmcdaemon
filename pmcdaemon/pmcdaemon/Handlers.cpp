@@ -16,7 +16,7 @@ RadioHandler::RadioHandler(Player *player) {
 }
 
 bool RadioHandler::handlePost(CivetServer *server, struct mg_connection *conn) {
-    const struct mg_request_info * req_info = mg_get_request_info(conn);;
+    const struct mg_request_info * req_info = mg_get_request_info(conn);
     processQuery(req_info->query_string);
     
     mg_printf(conn, "HTTP/1.1 200 OK\r\n");

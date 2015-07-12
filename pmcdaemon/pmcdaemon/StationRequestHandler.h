@@ -14,9 +14,8 @@
 #include "RequestHandler.h"
 
 class StationRequestHandler : public RequestHandler {
-    
 public:
-    StationRequestHandler(Server *s): RequestHandler(s) {}
+    StationRequestHandler(Server *s, Player *p): RequestHandler(s, p) {}
     bool handlePost(CivetServer *, struct mg_connection *) override;
 };
 

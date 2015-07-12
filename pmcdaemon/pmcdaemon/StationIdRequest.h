@@ -13,9 +13,9 @@
 
 #include "Request.h"
 
-class StationIdRequest: private Request {
+class StationIdRequest: public Request {
 public:
-    StationIdRequest(const struct mg_request_info *i): Request(i) {}
+    StationIdRequest(Player *p, const struct mg_request_info *i): Request(p, i) {}
     void execute() override;
 };
 

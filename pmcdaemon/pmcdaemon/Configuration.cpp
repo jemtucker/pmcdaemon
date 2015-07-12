@@ -20,7 +20,7 @@ Configuration::Configuration(std::string *path): stations(new std::vector<Manage
 
 std::string* Configuration::getUrl(int i) {
     if (i > stations->size() - 1)
-        throw new std::runtime_error("Attempted to access a station ID that does not exist");
+        throw std::runtime_error("Attempted to access a station ID that does not exist");
     return stations->operator[](i)->getUrl();
 }
 

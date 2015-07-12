@@ -12,17 +12,30 @@
 #include <stdio.h>
 #include <mutex>
 #include <queue>
+#include <memory>
+#include <chrono>
 
 #include "CivetServer.h"
 #include "Player.h"
 #include "Request.h"
 
+struct ServerSettings {
+    const char **civetOptions;
+     std::chrono::milliseconds workInterval;
+};
+
 class Server {
-    std::mutex mutexQueue;
-    std::queue<Request> requestQueue;
+    struct ServerSettings settings;
     
-    CivetServer *server;
-    Player *player;
+    std::unique_ptr<CivetServer> server;
+    
+    std::mutex mutexQueue;
+    std::queue<std::unique_ptr<Request>> requestQueue;
+    std::unique_ptr<std::thread> worker;
+    
+    void startWorker();
+    void doWork();
+    std::unique_ptr<Request> getNextRequest();
     
 public:
     Server(Player *);

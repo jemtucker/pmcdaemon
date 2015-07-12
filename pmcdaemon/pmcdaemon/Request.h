@@ -12,12 +12,18 @@
 #include <stdio.h>
 
 #include "CivetServer.h"
+#include "Player.h"
 
 class Request {
+protected:
     const struct mg_request_info *info;
+    Player *pmcplayer;
     
 public:
-    Request(const struct mg_request_info *i) { info = i; }
+    Request(Player *p, const struct mg_request_info *i) {
+        pmcplayer = p;
+        info = i;
+    }
     virtual void execute() = 0;
 };
 

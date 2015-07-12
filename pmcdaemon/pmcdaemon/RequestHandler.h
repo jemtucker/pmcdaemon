@@ -15,10 +15,16 @@
 #include "Server.h"
 
 class RequestHandler : public CivetHandler {
+protected:
     Server *pmcserver;
+    Player *pmcplayer;
     
 public:
-    RequestHandler(Server *s) { pmcserver = s; }
+    RequestHandler(Server *s, Player *p) {
+        pmcserver = s;
+        pmcplayer = p;
+    }
+    
     virtual bool handlePost(CivetServer *, struct mg_connection *) = 0;
 };
 

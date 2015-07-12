@@ -50,6 +50,7 @@ class Player {
     
 public:
     Player(Configuration *);
+    ~Player();
     
     /* Playing methods */
     void play(std::string &);

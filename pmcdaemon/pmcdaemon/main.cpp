@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
     Player *player = new Player(new Configuration(&path));
     
     new Server(player);
-    
+
     while (true) {}
     
     player->play();
