@@ -9,8 +9,6 @@
 #ifndef __pmcdaemon__StationIdRequest__
 #define __pmcdaemon__StationIdRequest__
 
-#include <stdio.h>
-
 #include "Request.h"
 
 class StationIdRequest: public Request {

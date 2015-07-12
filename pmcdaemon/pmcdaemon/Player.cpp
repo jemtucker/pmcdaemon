@@ -19,13 +19,10 @@ Player::Player(Configuration *conf): configuration(conf), currentUrl(*configurat
     ao_initialize();
     mpg123_init();
     mh = mpg123_new(NULL, NULL);
-    mpg123_open_feed(mh);
-    
 }
 
 Player::~Player() {
     curl_easy_cleanup(curl);
-    mpg123_close(mh);
     mpg123_delete(mh);
     mpg123_exit();
     ao_close(ao);
@@ -39,6 +36,7 @@ void Player::play(std::string &url) {
     while (getStatus() == PLAYING) stop();
     setStatus(PLAYING);
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+    mpg123_open_feed(mh);
     playThread.release();
     playThread.reset(new std::thread(&curl_easy_perform, curl));
 }
@@ -55,6 +53,7 @@ void Player::play() {
 void Player::stop() {
     setStatus(STOPPED);
     playThread->join();
+    mpg123_close(mh);
 }
 
 

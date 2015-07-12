@@ -10,7 +10,6 @@
 		B9D3BE6B1B4825AC0032BD64 /* CivetServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE681B4825AC0032BD64 /* CivetServer.cpp */; };
 		B9D3BE6C1B4825AC0032BD64 /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE691B4825AC0032BD64 /* civetweb.c */; };
 		B9D3BE731B4826380032BD64 /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE711B4826380032BD64 /* Server.cpp */; };
-		B9D3BE7C1B4864DD0032BD64 /* Handlers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE7A1B4864DD0032BD64 /* Handlers.cpp */; };
 		B9D3BE8A1B4922A50032BD64 /* StationRequestHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE881B4922A50032BD64 /* StationRequestHandler.cpp */; };
 		B9D3BE911B4938F70032BD64 /* StationIdRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE8F1B4938F70032BD64 /* StationIdRequest.cpp */; };
 		B9D9CD921B1B111D00F3D578 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD911B1B111D00F3D578 /* main.cpp */; };
@@ -41,8 +40,6 @@
 		B9D3BE6E1B4825BD0032BD64 /* civetweb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = civetweb.h; sourceTree = "<group>"; };
 		B9D3BE711B4826380032BD64 /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Server.cpp; sourceTree = "<group>"; };
 		B9D3BE721B4826380032BD64 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
-		B9D3BE7A1B4864DD0032BD64 /* Handlers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handlers.cpp; sourceTree = "<group>"; };
-		B9D3BE7B1B4864DD0032BD64 /* Handlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Handlers.h; sourceTree = "<group>"; };
 		B9D3BE861B4921CA0032BD64 /* RequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandler.h; sourceTree = "<group>"; };
 		B9D3BE881B4922A50032BD64 /* StationRequestHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StationRequestHandler.cpp; sourceTree = "<group>"; };
 		B9D3BE891B4922A50032BD64 /* StationRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationRequestHandler.h; sourceTree = "<group>"; };
@@ -107,8 +104,6 @@
 				B9D3BE6F1B4826030032BD64 /* Civet */,
 				B9D3BE711B4826380032BD64 /* Server.cpp */,
 				B9D3BE721B4826380032BD64 /* Server.h */,
-				B9D3BE7A1B4864DD0032BD64 /* Handlers.cpp */,
-				B9D3BE7B1B4864DD0032BD64 /* Handlers.h */,
 			);
 			name = Server;
 			sourceTree = "<group>";
@@ -236,7 +231,6 @@
 				B9D3BE731B4826380032BD64 /* Server.cpp in Sources */,
 				B9D3BE6C1B4825AC0032BD64 /* civetweb.c in Sources */,
 				B9D9CDB61B1B118D00F3D578 /* Configuration.cpp in Sources */,
-				B9D3BE7C1B4864DD0032BD64 /* Handlers.cpp in Sources */,
 				B9D9CDB91B1B118D00F3D578 /* Station.cpp in Sources */,
 				B9D9CDB51B1B118D00F3D578 /* Buffer.cpp in Sources */,
 				B9D3BE8A1B4922A50032BD64 /* StationRequestHandler.cpp in Sources */,

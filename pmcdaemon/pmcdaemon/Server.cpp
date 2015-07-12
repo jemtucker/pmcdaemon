@@ -19,8 +19,8 @@ Server::Server(Player *p) {
     settings.workInterval = std::chrono::duration<long, std::milli>(1000);
     
     std::unique_ptr<CivetServer> cs(new CivetServer(settings.civetOptions));
-    
     server = std::move(cs);
+    
     server->addHandler("/station/", new StationRequestHandler(this, p));
     
     startWorker();

@@ -10,6 +10,7 @@
 #define __pmcdaemon__RequestHandler__
 
 #include <stdio.h>
+#include <mutex>
 
 #include "CivetServer.h"
 #include "Server.h"
