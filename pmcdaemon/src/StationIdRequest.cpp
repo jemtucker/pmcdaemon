@@ -16,13 +16,12 @@
 void StationIdRequest::execute() {
     std::string string(info->query_string);
     std::string idString = string.substr(strlen(QUERY_ID));
-    int id = std::stoi(idString);
-    
-    std::cout << "Recieved request to play station: "
-              << id
-              << std::endl;
     
     try {
+        int id = std::stoi(idString);
+        std::cout << "Recieved request to play station: "
+                  << id
+                  << std::endl;
         pmcplayer->play(id);
     } catch (std::exception &e) {
         std::cout << e.what() << std::endl;

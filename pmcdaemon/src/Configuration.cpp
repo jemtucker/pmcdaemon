@@ -14,18 +14,22 @@
 
 #define EMPTY_URL ""
 
-Configuration::Configuration(std::string *path): stations(new std::vector<ManagedStation>()) {
+Configuration::Configuration(std::string *path) {
     loadConfig(path);
 }
 
 std::string* Configuration::getUrl(int i) {
-    if (i > stations->size() - 1)
+    if (i > stations.size() - 1)
         throw std::runtime_error("Attempted to access a station ID that does not exist");
-    return stations->operator[](i)->getUrl();
+    return stations[i]->getUrl();
 }
 
 void Configuration::loadConfig(std::string *path) {
     std::ifstream file(path->c_str());
+    
+    if (!file.is_open())
+        throw std::runtime_error("Configuration file could not be opened");
+    
     std::string line;
     
     while (std::getline(file, line)) {
@@ -58,7 +62,7 @@ void Configuration::parseLine(const char* line) {
         else v += c;
     }
     
-    stations->push_back(std::unique_ptr<Station>(new Station::Station(new std::string(k), new std::string(v), (int) stations->size())));
+    stations.push_back(std::unique_ptr<Station>(new Station::Station(k, v, (int) stations.size())));
 }
 
 

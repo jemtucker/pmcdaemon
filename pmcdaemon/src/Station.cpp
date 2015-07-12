@@ -9,15 +9,15 @@
 #include "Station.h"
 #include <iostream>
 
-Station::Station(std::string *name, std::string *url,
+Station::Station(std::string &name, std::string &url,
                  int identifier): name(name), url(url), identifier(identifier) {}
 
 std::string* Station::getUrl() {
-    return url.get();
+    return &url;
 }
 
 void Station::print() {
     std::cout << "  ID: " << identifier << std::endl;
-    std::cout << "Name: " << name.get() << std::endl;
-    std::cout << " URL: " << url.get()  << std::endl;
+    std::cout << "Name: " << name << std::endl;
+    std::cout << " URL: " << url << std::endl;
 }

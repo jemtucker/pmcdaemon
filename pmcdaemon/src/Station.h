@@ -13,12 +13,12 @@
 #include <memory>
 
 class Station {
-    std::unique_ptr<std::string> name;
-    std::unique_ptr<std::string> url;
+    std::string name;
+    std::string url;
     int identifier;
     
 public:
-    Station(std::string *, std::string *, int);
+    Station(std::string &, std::string &, int);
     void print();
     std::string* getUrl();
 };

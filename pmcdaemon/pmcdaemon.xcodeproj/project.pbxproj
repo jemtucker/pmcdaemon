@@ -15,7 +15,6 @@
 		B9D9CD921B1B111D00F3D578 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD911B1B111D00F3D578 /* main.cpp */; };
 		B9D9CDB61B1B118D00F3D578 /* Configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAC1B1B118D00F3D578 /* Configuration.cpp */; };
 		B9D9CDB71B1B118D00F3D578 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAE1B1B118D00F3D578 /* Player.cpp */; };
-		B9D9CDB81B1B118D00F3D578 /* Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDB01B1B118D00F3D578 /* Properties.cpp */; };
 		B9D9CDB91B1B118D00F3D578 /* Station.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDB21B1B118D00F3D578 /* Station.cpp */; };
 /* End PBXBuildFile section */
 
@@ -51,8 +50,6 @@
 		B9D9CDAD1B1B118D00F3D578 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		B9D9CDAE1B1B118D00F3D578 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		B9D9CDAF1B1B118D00F3D578 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		B9D9CDB01B1B118D00F3D578 /* Properties.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Properties.cpp; sourceTree = "<group>"; };
-		B9D9CDB11B1B118D00F3D578 /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
 		B9D9CDB21B1B118D00F3D578 /* Station.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Station.cpp; sourceTree = "<group>"; };
 		B9D9CDB31B1B118D00F3D578 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
 		B9D9CDB41B1B118D00F3D578 /* stations.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stations.conf; sourceTree = "<group>"; };
@@ -93,15 +90,6 @@
 				B9D9CDAF1B1B118D00F3D578 /* Player.h */,
 			);
 			name = Player;
-			sourceTree = "<group>";
-		};
-		B9D3BE651B4803680032BD64 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				B9D9CDB01B1B118D00F3D578 /* Properties.cpp */,
-				B9D9CDB11B1B118D00F3D578 /* Properties.h */,
-			);
-			name = Util;
 			sourceTree = "<group>";
 		};
 		B9D3BE671B481DE20032BD64 /* Server */ = {
@@ -156,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				B9D3BE671B481DE20032BD64 /* Server */,
-				B9D3BE651B4803680032BD64 /* Util */,
 				B9D3BE631B4803150032BD64 /* Player */,
 				B9D9CD911B1B111D00F3D578 /* main.cpp */,
 			);
@@ -219,7 +206,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9D9CDB81B1B118D00F3D578 /* Properties.cpp in Sources */,
 				B9D9CDB71B1B118D00F3D578 /* Player.cpp in Sources */,
 				B9D9CD921B1B111D00F3D578 /* main.cpp in Sources */,
 				B9D3BE731B4826380032BD64 /* Server.cpp in Sources */,

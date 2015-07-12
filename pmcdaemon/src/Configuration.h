@@ -16,11 +16,8 @@
 
 #include "Station.h"
 
-typedef std::unique_ptr<Station> ManagedStation;
-typedef std::unique_ptr<std::vector<ManagedStation>> ManagedStations;
-
 class Configuration {
-    ManagedStations stations;
+    std::vector<std::unique_ptr<Station>> stations;
     
     void loadConfig(std::string *);
     void parseLine(const char *);
