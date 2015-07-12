@@ -21,7 +21,9 @@ int main(int argc, const char * argv[]) {
     
     new Server(player);
 
-    while (true) {}
+    while (true) {
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+    }
     
     player->play();
     
