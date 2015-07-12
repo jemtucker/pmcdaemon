@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B9D3BE6B1B4825AC0032BD64 /* CivetServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE681B4825AC0032BD64 /* CivetServer.cpp */; };
-		B9D3BE6C1B4825AC0032BD64 /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE691B4825AC0032BD64 /* civetweb.c */; };
+		B92ECBB91B52F30300AFD34C /* CivetServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B92ECBB41B52F30300AFD34C /* CivetServer.cpp */; };
+		B92ECBBA1B52F30300AFD34C /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = B92ECBB61B52F30300AFD34C /* civetweb.c */; };
 		B9D3BE731B4826380032BD64 /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE711B4826380032BD64 /* Server.cpp */; };
 		B9D3BE8A1B4922A50032BD64 /* StationRequestHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE881B4922A50032BD64 /* StationRequestHandler.cpp */; };
 		B9D3BE911B4938F70032BD64 /* StationIdRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE8F1B4938F70032BD64 /* StationIdRequest.cpp */; };
 		B9D9CD921B1B111D00F3D578 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD911B1B111D00F3D578 /* main.cpp */; };
-		B9D9CDB51B1B118D00F3D578 /* Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAA1B1B118D00F3D578 /* Buffer.cpp */; };
 		B9D9CDB61B1B118D00F3D578 /* Configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAC1B1B118D00F3D578 /* Configuration.cpp */; };
 		B9D9CDB71B1B118D00F3D578 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAE1B1B118D00F3D578 /* Player.cpp */; };
 		B9D9CDB81B1B118D00F3D578 /* Properties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDB01B1B118D00F3D578 /* Properties.cpp */; };
@@ -33,11 +32,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B9D3BE681B4825AC0032BD64 /* CivetServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CivetServer.cpp; sourceTree = "<group>"; };
-		B9D3BE691B4825AC0032BD64 /* civetweb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = civetweb.c; sourceTree = "<group>"; };
-		B9D3BE6A1B4825AC0032BD64 /* md5.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = md5.inl; sourceTree = "<group>"; };
-		B9D3BE6D1B4825BD0032BD64 /* CivetServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CivetServer.h; sourceTree = "<group>"; };
-		B9D3BE6E1B4825BD0032BD64 /* civetweb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = civetweb.h; sourceTree = "<group>"; };
+		B92ECBB41B52F30300AFD34C /* CivetServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CivetServer.cpp; sourceTree = "<group>"; };
+		B92ECBB51B52F30300AFD34C /* CivetServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CivetServer.h; sourceTree = "<group>"; };
+		B92ECBB61B52F30300AFD34C /* civetweb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = civetweb.c; sourceTree = "<group>"; };
+		B92ECBB71B52F30300AFD34C /* civetweb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = civetweb.h; sourceTree = "<group>"; };
+		B92ECBB81B52F30300AFD34C /* md5.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = md5.inl; sourceTree = "<group>"; };
 		B9D3BE711B4826380032BD64 /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Server.cpp; sourceTree = "<group>"; };
 		B9D3BE721B4826380032BD64 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		B9D3BE861B4921CA0032BD64 /* RequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandler.h; sourceTree = "<group>"; };
@@ -48,8 +47,6 @@
 		B9D3BE901B4938F70032BD64 /* StationIdRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationIdRequest.h; sourceTree = "<group>"; };
 		B9D9CD8E1B1B111D00F3D578 /* pmcdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pmcdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D9CD911B1B111D00F3D578 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		B9D9CDAA1B1B118D00F3D578 /* Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Buffer.cpp; sourceTree = "<group>"; };
-		B9D9CDAB1B1B118D00F3D578 /* Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buffer.h; sourceTree = "<group>"; };
 		B9D9CDAC1B1B118D00F3D578 /* Configuration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Configuration.cpp; sourceTree = "<group>"; };
 		B9D9CDAD1B1B118D00F3D578 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		B9D9CDAE1B1B118D00F3D578 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -72,6 +69,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B92ECBB31B52F26600AFD34C /* Civet */ = {
+			isa = PBXGroup;
+			children = (
+				B92ECBB41B52F30300AFD34C /* CivetServer.cpp */,
+				B92ECBB51B52F30300AFD34C /* CivetServer.h */,
+				B92ECBB61B52F30300AFD34C /* civetweb.c */,
+				B92ECBB71B52F30300AFD34C /* civetweb.h */,
+				B92ECBB81B52F30300AFD34C /* md5.inl */,
+			);
+			path = Civet;
+			sourceTree = "<group>";
+		};
 		B9D3BE631B4803150032BD64 /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,8 +100,6 @@
 			children = (
 				B9D9CDB01B1B118D00F3D578 /* Properties.cpp */,
 				B9D9CDB11B1B118D00F3D578 /* Properties.h */,
-				B9D9CDAA1B1B118D00F3D578 /* Buffer.cpp */,
-				B9D9CDAB1B1B118D00F3D578 /* Buffer.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -101,23 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				B9D3BE811B49209E0032BD64 /* Handlers */,
-				B9D3BE6F1B4826030032BD64 /* Civet */,
 				B9D3BE711B4826380032BD64 /* Server.cpp */,
 				B9D3BE721B4826380032BD64 /* Server.h */,
 			);
 			name = Server;
-			sourceTree = "<group>";
-		};
-		B9D3BE6F1B4826030032BD64 /* Civet */ = {
-			isa = PBXGroup;
-			children = (
-				B9D3BE691B4825AC0032BD64 /* civetweb.c */,
-				B9D3BE6E1B4825BD0032BD64 /* civetweb.h */,
-				B9D3BE681B4825AC0032BD64 /* CivetServer.cpp */,
-				B9D3BE6D1B4825BD0032BD64 /* CivetServer.h */,
-				B9D3BE6A1B4825AC0032BD64 /* md5.inl */,
-			);
-			name = Civet;
 			sourceTree = "<group>";
 		};
 		B9D3BE811B49209E0032BD64 /* Handlers */ = {
@@ -144,7 +138,8 @@
 		B9D9CD851B1B111D00F3D578 = {
 			isa = PBXGroup;
 			children = (
-				B9D9CD901B1B111D00F3D578 /* pmcdaemon */,
+				B92ECBB31B52F26600AFD34C /* Civet */,
+				B9D9CD901B1B111D00F3D578 /* src */,
 				B9D9CD8F1B1B111D00F3D578 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,7 +152,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B9D9CD901B1B111D00F3D578 /* pmcdaemon */ = {
+		B9D9CD901B1B111D00F3D578 /* src */ = {
 			isa = PBXGroup;
 			children = (
 				B9D3BE671B481DE20032BD64 /* Server */,
@@ -165,7 +160,7 @@
 				B9D3BE631B4803150032BD64 /* Player */,
 				B9D9CD911B1B111D00F3D578 /* main.cpp */,
 			);
-			path = pmcdaemon;
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,15 +220,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9D9CDB81B1B118D00F3D578 /* Properties.cpp in Sources */,
-				B9D3BE6B1B4825AC0032BD64 /* CivetServer.cpp in Sources */,
 				B9D9CDB71B1B118D00F3D578 /* Player.cpp in Sources */,
 				B9D9CD921B1B111D00F3D578 /* main.cpp in Sources */,
 				B9D3BE731B4826380032BD64 /* Server.cpp in Sources */,
-				B9D3BE6C1B4825AC0032BD64 /* civetweb.c in Sources */,
+				B92ECBBA1B52F30300AFD34C /* civetweb.c in Sources */,
 				B9D9CDB61B1B118D00F3D578 /* Configuration.cpp in Sources */,
 				B9D9CDB91B1B118D00F3D578 /* Station.cpp in Sources */,
-				B9D9CDB51B1B118D00F3D578 /* Buffer.cpp in Sources */,
 				B9D3BE8A1B4922A50032BD64 /* StationRequestHandler.cpp in Sources */,
+				B92ECBB91B52F30300AFD34C /* CivetServer.cpp in Sources */,
 				B9D3BE911B4938F70032BD64 /* StationIdRequest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
