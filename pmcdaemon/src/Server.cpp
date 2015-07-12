@@ -12,6 +12,7 @@
 Server::Server(Player *p) {
     const char *options[] = {
         "num_threads", "1",
+        "listening_ports", "8080",
         NULL
     };
     

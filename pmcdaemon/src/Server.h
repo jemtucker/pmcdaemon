@@ -21,7 +21,7 @@
 
 struct ServerSettings {
     const char **civetOptions;
-     std::chrono::milliseconds workInterval;
+    std::chrono::milliseconds workInterval;
 };
 
 class Server {
