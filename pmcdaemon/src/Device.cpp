@@ -23,13 +23,13 @@ Device::Device(): server(new Server(this)) {
     const std::string path = CONF_PATH;
     config = std::make_shared<Configuration>(path);
     
-    addModule(new RadioPlayer(config));
+    addModule(RADIO, new RadioPlayer(config));
     
     handleRequests();
 }
 
-void Device::addModule(Module *m) {
-    modules.push_back(std::unique_ptr<Module>(m));
+void Device::addModule(ModuleType t, Module *m) {
+    modules[t] = std::unique_ptr<Module>(m);
 }
 
 void Device::handleRequests() {
@@ -58,8 +58,5 @@ std::unique_ptr<Request> Device::getNextRequest() {
 }
 
 void Device::play(ModuleType moduleType, std::string &str) {
-    switch (moduleType) {
-        case RADIO:
-            modules[0]->play(str);
-    }
+    modules[moduleType]->play(str);
 }

@@ -9,7 +9,7 @@
 #ifndef __pmcdaemon__Device__
 #define __pmcdaemon__Device__
 
-#include <vector>
+#include <map>
 #include <memory>
 #include <mutex>
 #include <queue>
@@ -25,13 +25,13 @@ class Server;
 
 class Device {
     std::shared_ptr<Configuration> config;
-    std::vector<std::unique_ptr<Module>> modules; // Become map type -> module
+    std::map<ModuleType, std::unique_ptr<Module>> modules;
     std::unique_ptr<Server> server;
     
     std::mutex mutexQueue;
     std::queue<std::unique_ptr<Request>> requestQueue;
     
-    void addModule(Module *);
+    void addModule(ModuleType, Module *);
     
     std::unique_ptr<Request> getNextRequest();
     void handleRequests();
