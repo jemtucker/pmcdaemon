@@ -16,14 +16,16 @@
 #include "appkey.h"
 
 // Work out how to remove global vars
-int notify_events;
-std::mutex notifyMutex;
-std::condition_variable notify_cond;
+static int notify_events;
+static std::mutex notifyMutex;
+static std::condition_variable notify_cond;
 
 class Session {
     sp_session *session;
     sp_session_config config;
     sp_session_callbacks callbacks;
+    
+    void initSession(std::string, std::string);
     
     std::string readUser();     // Temporary
     std::string readPassword(); // Temporary

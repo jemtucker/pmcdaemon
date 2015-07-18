@@ -11,11 +11,51 @@
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
+#include <sys/time.h>
 
 #define USER_AGENT "pmcdaemon"
 
 
 Session::Session(std::string user, std::string pass) {
+    initSession(user, pass);
+    
+    int next_timeout = 0;
+    
+    
+    for (;;) {
+        {
+            std::unique_lock<std::mutex> lock(notifyMutex);
+            if (next_timeout == 0) {
+                while(!notify_events)
+                    notify_cond.wait(lock);
+            } else {
+                struct timespec ts;
+                
+    #if _POSIX_TIMERS > 0
+                clock_gettime(CLOCK_REALTIME, &ts);
+    #else
+                struct timeval tv;
+                gettimeofday(&tv, NULL);
+                TIMEVAL_TO_TIMESPEC(&tv, &ts);
+    #endif
+                
+                ts.tv_sec += next_timeout / 1000;
+                ts.tv_nsec += (next_timeout % 1000) * 1000000;
+                
+                while(!notify_events) {
+                    (notify_cond.wait(lock));
+                }
+            }
+            
+            notify_events = 0;
+        }
+        do {
+            sp_session_process_events(session, &next_timeout);
+        } while (next_timeout == 0);
+    }
+}
+
+void Session::initSession(std::string user, std::string pass) {
     callbacks = {
         &loggedIn,
         &loggedOut,

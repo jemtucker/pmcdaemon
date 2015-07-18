@@ -6,15 +6,15 @@
 //  Copyright (c) 2015 Jem Tucker. All rights reserved.
 //
 
-#include <iostream>
+
 #include <unistd.h>
-#include <memory>
 
 #include "Device.h"
+#include "Session.h"
 
 int main(int argc, const char * argv[]) {
     new Device();
-    
+//    new Session("", "");
     usleep(30000 * 1000);
     
     return 0;
