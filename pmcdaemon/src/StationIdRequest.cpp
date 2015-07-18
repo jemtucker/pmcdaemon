@@ -13,17 +13,13 @@
 
 #define QUERY_ID "id="
 
-void StationIdRequest::execute() {
+StationIdRequest::StationIdRequest(const struct mg_request_info *i): Request(i) {}
+
+void StationIdRequest::execute(Device *device) {
     std::string string(info->query_string);
     std::string idString = string.substr(strlen(QUERY_ID));
-    
-    try {
-        int id = std::stoi(idString);
-        std::cout << "Recieved request to play station: "
-                  << id
-                  << std::endl;
-        pmcplayer->play(id);
-    } catch (std::exception &e) {
-        std::cout << e.what() << std::endl;
-    }
+    std::cout << "Recieved request to play station: "
+              << idString
+              << std::endl;
+    device->play(RADIO, idString);
 }

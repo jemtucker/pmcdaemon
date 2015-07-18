@@ -8,13 +8,9 @@
 
 #include "Configuration.h"
 
-#include <fstream>
-#include <iostream>
-#include <exception>
-
 #define EMPTY_URL ""
 
-Configuration::Configuration(std::string *path) {
+Configuration::Configuration(const std::string &path) {
     loadConfig(path);
 }
 
@@ -24,8 +20,8 @@ std::string* Configuration::getUrl(int i) {
     return stations[i]->getUrl();
 }
 
-void Configuration::loadConfig(std::string *path) {
-    std::ifstream file(path->c_str());
+void Configuration::loadConfig(const std::string &path) {
+    std::ifstream file(path.c_str());
     
     if (!file.is_open())
         throw std::runtime_error("Configuration file could not be opened");

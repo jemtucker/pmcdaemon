@@ -7,10 +7,11 @@
 //
 
 #include "StationRequestHandler.h"
+
 #include "StationIdRequest.h"
 
-bool StationRequestHandler::handlePost(CivetServer *server, struct mg_connection *conn) {
-    pmcserver->queueRequest(new StationIdRequest(pmcplayer, mg_get_request_info(conn)));
+bool StationRequestHandler::handlePost(CivetServer *cs, struct mg_connection *conn) {
+    device->queueRequest(new StationIdRequest(mg_get_request_info(conn)));
     mg_printf(conn, "HTTP/1.1 200 OK\n\nRequest Queued\n");
     return true;
 }

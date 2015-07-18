@@ -13,8 +13,8 @@
 
 class StationIdRequest: public Request {
 public:
-    StationIdRequest(Player *p, const struct mg_request_info *i): Request(p, i) {}
-    void execute() override;
+    StationIdRequest(const struct mg_request_info *);
+    void execute(Device *) override;
 };
 
 #endif /* defined(__pmcdaemon__StationIdRequest__) */

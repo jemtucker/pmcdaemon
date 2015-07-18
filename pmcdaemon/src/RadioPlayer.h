@@ -1,15 +1,14 @@
 //
-//  Player.h
+//  RadioPlayer.h
 //  pmcdaemon
 //
 //  Created by Jem Tucker on 23/05/2015.
 //  Copyright (c) 2015 Jem Tucker. All rights reserved.
 //
 
-#ifndef __pmcdaemon__Player__
-#define __pmcdaemon__Player__
+#ifndef __pmcdaemon__RadioPlayer__
+#define __pmcdaemon__RadioPlayer__
 
-#include <stdio.h>
 #include <iostream>
 #include <string>
 #include <mutex>
@@ -19,16 +18,15 @@
 #include <ao/ao.h>
 #include <curl/curl.h>
 
-#include "Configuration.h"
+#include "Module.h"
 
 enum Status {PLAYING, STOPPED};
 
-class Player {
+class RadioPlayer: public Module {
     /* Mutexes */
     std::mutex mutexStatus;
     
     /* Properties */
-    std::unique_ptr<Configuration> configuration;
     std::unique_ptr<std::thread> playThread;
     
     std::string currentUrl;
@@ -49,12 +47,12 @@ class Player {
     void setStatus(Status);
     
 public:
-    Player(Configuration *);
-    ~Player();
+    RadioPlayer(std::shared_ptr<Configuration>);
+    ~RadioPlayer();
     
     /* Playing methods */
-    void play(std::string &);
-    void play(int);
+    void playUrl(std::string &);
+    void play(std::string &) override;
     void play();
     void stop();
     
@@ -63,4 +61,4 @@ public:
 };
 
 
-#endif /* defined(__pmcdaemon__Player__) */
+#endif /* defined(__pmcdaemon__RadioPlayer__) */

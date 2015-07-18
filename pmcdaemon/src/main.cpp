@@ -10,30 +10,10 @@
 #include <unistd.h>
 #include <memory>
 
-#include "Configuration.h"
-#include "Player.h"
-#include "Server.h"
+#include "Device.h"
 
 int main(int argc, const char * argv[]) {
-    std::string path = "/Users/Jem/workspace/PiPlayer/pmcdaemon/src/stations.conf";
-    
-    Player *player = new Player(new Configuration(&path));
-    
-    new Server(player);
-
-    while (true) {
-        std::this_thread::sleep_for(std::chrono::seconds(2));
-    }
-    
-    // Testing
-    
-    player->play();
-    
-    usleep(30000 * 1000);
-    
-    
-    std::string test = "http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p";
-    player->play(test);
+    new Device();
     
     usleep(30000 * 1000);
     

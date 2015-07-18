@@ -13,17 +13,15 @@
 #include <mutex>
 
 #include "CivetServer.h"
-#include "Server.h"
+#include "Device.h"
 
 class RequestHandler : public CivetHandler {
 protected:
-    Server *pmcserver;
-    Player *pmcplayer;
+    Device *device;
     
 public:
-    RequestHandler(Server *s, Player *p) {
-        pmcserver = s;
-        pmcplayer = p;
+    RequestHandler(Device *d) {
+        device = d;
     }
     
     virtual bool handlePost(CivetServer *, struct mg_connection *) = 0;

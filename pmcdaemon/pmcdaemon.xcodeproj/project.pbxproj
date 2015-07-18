@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		B92ECBB91B52F30300AFD34C /* CivetServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B92ECBB41B52F30300AFD34C /* CivetServer.cpp */; };
 		B92ECBBA1B52F30300AFD34C /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = B92ECBB61B52F30300AFD34C /* civetweb.c */; };
+		B92ECBBE1B597E6800AFD34C /* Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B92ECBBC1B597E6800AFD34C /* Device.cpp */; };
 		B9D3BE731B4826380032BD64 /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE711B4826380032BD64 /* Server.cpp */; };
 		B9D3BE8A1B4922A50032BD64 /* StationRequestHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE881B4922A50032BD64 /* StationRequestHandler.cpp */; };
 		B9D3BE911B4938F70032BD64 /* StationIdRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE8F1B4938F70032BD64 /* StationIdRequest.cpp */; };
 		B9D9CD921B1B111D00F3D578 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CD911B1B111D00F3D578 /* main.cpp */; };
 		B9D9CDB61B1B118D00F3D578 /* Configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAC1B1B118D00F3D578 /* Configuration.cpp */; };
-		B9D9CDB71B1B118D00F3D578 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAE1B1B118D00F3D578 /* Player.cpp */; };
+		B9D9CDB71B1B118D00F3D578 /* RadioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDAE1B1B118D00F3D578 /* RadioPlayer.cpp */; };
 		B9D9CDB91B1B118D00F3D578 /* Station.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D9CDB21B1B118D00F3D578 /* Station.cpp */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,9 @@
 		B92ECBB61B52F30300AFD34C /* civetweb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = civetweb.c; sourceTree = "<group>"; };
 		B92ECBB71B52F30300AFD34C /* civetweb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = civetweb.h; sourceTree = "<group>"; };
 		B92ECBB81B52F30300AFD34C /* md5.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = md5.inl; sourceTree = "<group>"; };
+		B92ECBBC1B597E6800AFD34C /* Device.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Device.cpp; sourceTree = "<group>"; };
+		B92ECBBD1B597E6800AFD34C /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		B92ECBC11B597EC600AFD34C /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Module.h; sourceTree = "<group>"; };
 		B9D3BE711B4826380032BD64 /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Server.cpp; sourceTree = "<group>"; };
 		B9D3BE721B4826380032BD64 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		B9D3BE861B4921CA0032BD64 /* RequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandler.h; sourceTree = "<group>"; };
@@ -48,8 +52,8 @@
 		B9D9CD911B1B111D00F3D578 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B9D9CDAC1B1B118D00F3D578 /* Configuration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Configuration.cpp; sourceTree = "<group>"; };
 		B9D9CDAD1B1B118D00F3D578 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
-		B9D9CDAE1B1B118D00F3D578 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
-		B9D9CDAF1B1B118D00F3D578 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		B9D9CDAE1B1B118D00F3D578 /* RadioPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RadioPlayer.cpp; sourceTree = "<group>"; };
+		B9D9CDAF1B1B118D00F3D578 /* RadioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioPlayer.h; sourceTree = "<group>"; };
 		B9D9CDB21B1B118D00F3D578 /* Station.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Station.cpp; sourceTree = "<group>"; };
 		B9D9CDB31B1B118D00F3D578 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
 		B9D9CDB41B1B118D00F3D578 /* stations.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stations.conf; sourceTree = "<group>"; };
@@ -78,6 +82,15 @@
 			path = Civet;
 			sourceTree = "<group>";
 		};
+		B92ECBBF1B597EAE00AFD34C /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B9D3BE631B4803150032BD64 /* Player */,
+				B92ECBC11B597EC600AFD34C /* Module.h */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
 		B9D3BE631B4803150032BD64 /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,8 +99,8 @@
 				B9D9CDB31B1B118D00F3D578 /* Station.h */,
 				B9D9CDAC1B1B118D00F3D578 /* Configuration.cpp */,
 				B9D9CDAD1B1B118D00F3D578 /* Configuration.h */,
-				B9D9CDAE1B1B118D00F3D578 /* Player.cpp */,
-				B9D9CDAF1B1B118D00F3D578 /* Player.h */,
+				B9D9CDAE1B1B118D00F3D578 /* RadioPlayer.cpp */,
+				B9D9CDAF1B1B118D00F3D578 /* RadioPlayer.h */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -143,9 +156,11 @@
 		B9D9CD901B1B111D00F3D578 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				B92ECBBF1B597EAE00AFD34C /* Modules */,
 				B9D3BE671B481DE20032BD64 /* Server */,
-				B9D3BE631B4803150032BD64 /* Player */,
 				B9D9CD911B1B111D00F3D578 /* main.cpp */,
+				B92ECBBC1B597E6800AFD34C /* Device.cpp */,
+				B92ECBBD1B597E6800AFD34C /* Device.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -206,7 +221,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9D9CDB71B1B118D00F3D578 /* Player.cpp in Sources */,
+				B9D9CDB71B1B118D00F3D578 /* RadioPlayer.cpp in Sources */,
+				B92ECBBE1B597E6800AFD34C /* Device.cpp in Sources */,
 				B9D9CD921B1B111D00F3D578 /* main.cpp in Sources */,
 				B9D3BE731B4826380032BD64 /* Server.cpp in Sources */,
 				B92ECBBA1B52F30300AFD34C /* civetweb.c in Sources */,

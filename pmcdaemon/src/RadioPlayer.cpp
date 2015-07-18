@@ -1,27 +1,27 @@
 //
-//  Player.cpp
+//  RadioPlayer.cpp
 //  pmcdaemon
 //
 //  Created by Jem Tucker on 23/05/2015.
 //  Copyright (c) 2015 Jem Tucker. All rights reserved.
 //
 
-#include "Player.h"
+#include "RadioPlayer.h"
 
 #define BITS 8
 #define DEFAULT_URL 0
 
-Player::Player(Configuration *conf): configuration(conf), currentUrl(*configuration->getUrl(DEFAULT_URL)) {
+RadioPlayer::RadioPlayer(std::shared_ptr<Configuration> conf): Module(conf), currentUrl(*configuration->getUrl(DEFAULT_URL)) {
     
     curl = curl_easy_init();
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &Player::static_play_stream);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &RadioPlayer::static_play_stream);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);
     ao_initialize();
     mpg123_init();
     mh = mpg123_new(NULL, NULL);
 }
 
-Player::~Player() {
+RadioPlayer::~RadioPlayer() {
     curl_easy_cleanup(curl);
     mpg123_delete(mh);
     mpg123_exit();
@@ -32,7 +32,7 @@ Player::~Player() {
 
 /* Playing methods */
 
-void Player::play(std::string &url) {
+void RadioPlayer::playUrl(std::string &url) {
     while (getStatus() == PLAYING) stop();
     setStatus(PLAYING);
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
@@ -41,16 +41,21 @@ void Player::play(std::string &url) {
     playThread.reset(new std::thread(&curl_easy_perform, curl));
 }
 
-void Player::play(int stationId) {
-    std::string url = *configuration->getUrl(stationId);
-    play(url);
+void RadioPlayer::play(std::string &stationId) {
+    try {
+        int id = std::stoi(stationId);
+        std::string url = *configuration->getUrl(id);
+        playUrl(url);
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
 }
 
-void Player::play() {
+void RadioPlayer::play() {
     play(currentUrl);
 }
 
-void Player::stop() {
+void RadioPlayer::stop() {
     setStatus(STOPPED);
     playThread->join();
     mpg123_close(mh);
@@ -59,8 +64,8 @@ void Player::stop() {
 
 /* Callbacks for curl */
 
-size_t Player::play_stream(void *buffer, size_t size, size_t nmemb, void *userp) {
-    if (static_cast<Player *>(userp)->status == STOPPED)
+size_t RadioPlayer::play_stream(void *buffer, size_t size, size_t nmemb, void *userp) {
+    if (static_cast<RadioPlayer *>(userp)->status == STOPPED)
         return CURL_READFUNC_ABORT;
     
     int err;
@@ -97,20 +102,20 @@ size_t Player::play_stream(void *buffer, size_t size, size_t nmemb, void *userp)
     return size * nmemb;
 }
 
-size_t Player::static_play_stream(void *buffer, size_t size, size_t nmemb, void *userp) {
-     return static_cast<Player *>(userp)->play_stream(buffer, size, nmemb, userp);
+size_t RadioPlayer::static_play_stream(void *buffer, size_t size, size_t nmemb, void *userp) {
+     return static_cast<RadioPlayer *>(userp)->play_stream(buffer, size, nmemb, userp);
 }
 
 
 /* Getters and Setters */
 
-void Player::setStatus(Status status) {
+void RadioPlayer::setStatus(Status status) {
     mutexStatus.lock();
     this->status = status;
     mutexStatus.unlock();
 }
 
-Status Player::getStatus(void) {
+Status RadioPlayer::getStatus(void) {
     mutexStatus.lock();
     Status rtn = status;
     mutexStatus.unlock();

@@ -9,22 +9,20 @@
 #ifndef __pmcdaemon__Request__
 #define __pmcdaemon__Request__
 
-#include <stdio.h>
-
 #include "CivetServer.h"
-#include "Player.h" 
+#include "Device.h"
+#include "Module.h"
 
 class Request {
 protected:
     const struct mg_request_info *info;
-    Player *pmcplayer;
     
 public:
-    Request(Player *p, const struct mg_request_info *i) {
-        pmcplayer = p;
+    Request(const struct mg_request_info *i) {
         info = i;
     }
-    virtual void execute() = 0;
+    
+    virtual void execute(Device *) = 0;
 };
 
 #endif /* defined(__pmcdaemon__Request__) */

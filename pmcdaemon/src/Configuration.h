@@ -9,21 +9,23 @@
 #ifndef __pmcdaemon__Configuration__
 #define __pmcdaemon__Configuration__
 
-#include <stdio.h>
 #include <string>
 #include <memory>
 #include <vector>
+#include <fstream>
+#include <iostream>
+#include <exception>
 
 #include "Station.h"
 
 class Configuration {
     std::vector<std::unique_ptr<Station>> stations;
     
-    void loadConfig(std::string *);
+    void loadConfig(const std::string &);
     void parseLine(const char *);
     
 public:
-    Configuration(std::string *);
+    Configuration(const std::string &);
     std::string* getUrl(int);
 };
 

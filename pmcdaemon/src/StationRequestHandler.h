@@ -9,13 +9,11 @@
 #ifndef __pmcdaemon__StationRequestHandler__
 #define __pmcdaemon__StationRequestHandler__
 
-#include <stdio.h>
-
 #include "RequestHandler.h"
 
 class StationRequestHandler : public RequestHandler {
 public:
-    StationRequestHandler(Server *s, Player *p): RequestHandler(s, p) {}
+    StationRequestHandler(Device *d): RequestHandler(d) {}
     bool handlePost(CivetServer *, struct mg_connection *) override;
 };
 
