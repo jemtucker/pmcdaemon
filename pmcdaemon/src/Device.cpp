@@ -14,7 +14,7 @@
 #include "Server.h"
 
 /* Modules */
-#include "RadioPlayer.h"
+#include "RadioModule.h"
 
 #define CONF_PATH "/Users/Jem/workspace/PiPlayer/pmcdaemon/src/stations.conf"
 #define INTERVAL_MS 1000
@@ -23,7 +23,7 @@ Device::Device(): server(new Server(this)) {
     const std::string path = CONF_PATH;
     config = std::make_shared<Configuration>(path);
     
-    addModule(RADIO, new RadioPlayer(config));
+    addModule(RADIO, new RadioModule(config));
     
     handleRequests();
 }

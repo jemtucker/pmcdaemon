@@ -1,13 +1,13 @@
 //
-//  RadioPlayer.h
+//  RadioModule.h
 //  pmcdaemon
 //
 //  Created by Jem Tucker on 23/05/2015.
 //  Copyright (c) 2015 Jem Tucker. All rights reserved.
 //
 
-#ifndef __pmcdaemon__RadioPlayer__
-#define __pmcdaemon__RadioPlayer__
+#ifndef __pmcdaemon__RadioModule__
+#define __pmcdaemon__RadioModule__
 
 #include <iostream>
 #include <string>
@@ -22,7 +22,7 @@
 
 enum Status {PLAYING, STOPPED};
 
-class RadioPlayer: public Module {
+class RadioModule: public Module {
     /* Mutexes */
     std::mutex mutexStatus;
     
@@ -47,8 +47,8 @@ class RadioPlayer: public Module {
     void setStatus(Status);
     
 public:
-    RadioPlayer(std::shared_ptr<Configuration>);
-    ~RadioPlayer();
+    RadioModule(std::shared_ptr<Configuration>);
+    ~RadioModule();
     
     /* Playing methods */
     void playUrl(std::string &);
@@ -61,4 +61,4 @@ public:
 };
 
 
-#endif /* defined(__pmcdaemon__RadioPlayer__) */
+#endif /* defined(__pmcdaemon__RadioModule__) */
