@@ -10,10 +10,6 @@
 		B92ECBB91B52F30300AFD34C /* CivetServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B92ECBB41B52F30300AFD34C /* CivetServer.cpp */; };
 		B92ECBBA1B52F30300AFD34C /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = B92ECBB61B52F30300AFD34C /* civetweb.c */; };
 		B92ECBBE1B597E6800AFD34C /* Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B92ECBBC1B597E6800AFD34C /* Device.cpp */; };
-		B92ECBC81B5A595200AFD34C /* SpotifyModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B92ECBC61B5A595200AFD34C /* SpotifyModule.cpp */; };
-		B92ECBCC1B5A5FA400AFD34C /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B92ECBCA1B5A5FA400AFD34C /* Session.cpp */; };
-		B92ECBD01B5AA6C400AFD34C /* libspotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92ECBCF1B5AA6C400AFD34C /* libspotify.framework */; };
-		B92ECBD11B5AA6FF00AFD34C /* libspotify.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B92ECBCF1B5AA6C400AFD34C /* libspotify.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B9D3BE731B4826380032BD64 /* Server.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE711B4826380032BD64 /* Server.cpp */; };
 		B9D3BE8A1B4922A50032BD64 /* StationRequestHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE881B4922A50032BD64 /* StationRequestHandler.cpp */; };
 		B9D3BE911B4938F70032BD64 /* StationIdRequest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B9D3BE8F1B4938F70032BD64 /* StationIdRequest.cpp */; };
@@ -30,7 +26,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B92ECBD11B5AA6FF00AFD34C /* libspotify.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,12 +40,6 @@
 		B92ECBBC1B597E6800AFD34C /* Device.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Device.cpp; sourceTree = "<group>"; };
 		B92ECBBD1B597E6800AFD34C /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
 		B92ECBC11B597EC600AFD34C /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Module.h; sourceTree = "<group>"; };
-		B92ECBC61B5A595200AFD34C /* SpotifyModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpotifyModule.cpp; sourceTree = "<group>"; };
-		B92ECBC71B5A595200AFD34C /* SpotifyModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyModule.h; sourceTree = "<group>"; };
-		B92ECBCA1B5A5FA400AFD34C /* Session.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Session.cpp; sourceTree = "<group>"; };
-		B92ECBCB1B5A5FA400AFD34C /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
-		B92ECBCD1B5A9E4100AFD34C /* appkey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = appkey.h; sourceTree = "<group>"; };
-		B92ECBCF1B5AA6C400AFD34C /* libspotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = libspotify.framework; sourceTree = "<group>"; };
 		B9D3BE711B4826380032BD64 /* Server.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Server.cpp; sourceTree = "<group>"; };
 		B9D3BE721B4826380032BD64 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		B9D3BE861B4921CA0032BD64 /* RequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandler.h; sourceTree = "<group>"; };
@@ -75,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B92ECBD01B5AA6C400AFD34C /* libspotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,23 +85,10 @@
 		B92ECBBF1B597EAE00AFD34C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B92ECBC31B5A57DC00AFD34C /* Spotify */,
 				B9D3BE631B4803150032BD64 /* Player */,
 				B92ECBC11B597EC600AFD34C /* Module.h */,
 			);
 			name = Modules;
-			sourceTree = "<group>";
-		};
-		B92ECBC31B5A57DC00AFD34C /* Spotify */ = {
-			isa = PBXGroup;
-			children = (
-				B92ECBC61B5A595200AFD34C /* SpotifyModule.cpp */,
-				B92ECBC71B5A595200AFD34C /* SpotifyModule.h */,
-				B92ECBCA1B5A5FA400AFD34C /* Session.cpp */,
-				B92ECBCB1B5A5FA400AFD34C /* Session.h */,
-				B92ECBCD1B5A9E4100AFD34C /* appkey.h */,
-			);
-			name = Spotify;
 			sourceTree = "<group>";
 		};
 		B9D3BE631B4803150032BD64 /* Player */ = {
@@ -164,7 +139,6 @@
 		B9D9CD851B1B111D00F3D578 = {
 			isa = PBXGroup;
 			children = (
-				B92ECBCF1B5AA6C400AFD34C /* libspotify.framework */,
 				B92ECBB31B52F26600AFD34C /* Civet */,
 				B9D9CD901B1B111D00F3D578 /* src */,
 				B9D9CD8F1B1B111D00F3D578 /* Products */,
@@ -250,8 +224,6 @@
 				B9D9CDB71B1B118D00F3D578 /* RadioModule.cpp in Sources */,
 				B92ECBBE1B597E6800AFD34C /* Device.cpp in Sources */,
 				B9D9CD921B1B111D00F3D578 /* main.cpp in Sources */,
-				B92ECBC81B5A595200AFD34C /* SpotifyModule.cpp in Sources */,
-				B92ECBCC1B5A5FA400AFD34C /* Session.cpp in Sources */,
 				B9D3BE731B4826380032BD64 /* Server.cpp in Sources */,
 				B92ECBBA1B52F30300AFD34C /* civetweb.c in Sources */,
 				B9D9CDB61B1B118D00F3D578 /* Configuration.cpp in Sources */,
@@ -284,6 +256,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -326,6 +299,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -344,7 +318,6 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Jem/Downloads/libspotify-12.1.51-Darwin-universal",
 					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
@@ -352,6 +325,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/local/Cellar/mpg123/1.21.0/include,
 					/usr/local/Cellar/libao/1.2.0/include,
+					/Users/Jem/workspace/PiPlayer/pmcdaemon/libspotify.framework,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/Cellar/mpg123/1.21.0/lib,
@@ -371,7 +345,6 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Jem/Downloads/libspotify-12.1.51-Darwin-universal",
 					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
@@ -379,6 +352,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/local/Cellar/mpg123/1.21.0/include,
 					/usr/local/Cellar/libao/1.2.0/include,
+					/Users/Jem/workspace/PiPlayer/pmcdaemon/libspotify.framework,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/Cellar/mpg123/1.21.0/lib,

@@ -10,12 +10,8 @@
 #include <unistd.h>
 
 #include "Device.h"
-#include "Session.h"
 
 int main(int argc, const char * argv[]) {
     new Device();
-//    new Session("", "");
-    usleep(30000 * 1000);
-    
     return 0;
 }
