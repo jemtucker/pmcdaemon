@@ -8,21 +8,17 @@
 
 #include "Server.h"
 
-#include "Device.h"
-#include "Module.h"
+static const char *options[] = {
+    "num_threads", "1",
+    "listening_ports", "8080",
+    NULL
+};
 
-/* Request Handlers */
-#include "StationRequestHandler.h"
-
-Server::Server(Device *device) {
-    const char *options[] = {
-        "num_threads", "1",
-        "listening_ports", "8080",
-        NULL
-    };
-    
+void Server::init() {
     std::unique_ptr<CivetServer> cs(new CivetServer(options));
     server = std::move(cs);
-    
-    server->addHandler("/station/", new StationRequestHandler(device));
+}
+
+void Server::addHandler(std::string route, CivetHandler &handler) {
+    server->addHandler(route, handler);
 }

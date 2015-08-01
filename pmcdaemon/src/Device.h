@@ -14,6 +14,8 @@
 #include <mutex>
 #include <queue>
 
+#include "CivetServer.h"
+
 enum ModuleType {
     RADIO
 };
@@ -31,13 +33,14 @@ class Device {
     std::mutex mutexQueue;
     std::queue<std::unique_ptr<Request>> requestQueue;
     
-    void addModule(ModuleType, Module *);
+    void addModule(ModuleType, Module *, std::string, CivetHandler &);
     
     std::unique_ptr<Request> getNextRequest();
     void handleRequests();
 
 public:
     Device();
+    void init();
     void queueRequest(Request *);
     void play(ModuleType, std::string &);
 };

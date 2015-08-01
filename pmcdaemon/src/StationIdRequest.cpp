@@ -16,10 +16,14 @@
 StationIdRequest::StationIdRequest(const struct mg_request_info *i): Request(i) {}
 
 void StationIdRequest::execute(Device *device) {
-    std::string string(info->query_string);
-    std::string idString = string.substr(strlen(QUERY_ID));
-    std::cout << "Recieved request to play station: "
-              << idString
-              << std::endl;
-    device->play(RADIO, idString);
+    if (info->query_string != nullptr) {
+        std::string string(info->query_string);
+        std::string idString = string.substr(strlen(QUERY_ID));
+        std::cout << "Recieved request to play station: "
+        << idString
+        << std::endl;
+        device->play(RADIO, idString);
+    } else {
+        std::cout << "No query provided for execution." << std::endl;
+    }
 }

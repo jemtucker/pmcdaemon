@@ -19,16 +19,13 @@
 #include "CivetServer.h"
 #include "Request.h"
 
-class Device;
-class Module;
-
-
 class Server {
     std::unique_ptr<CivetServer> server;
     std::unique_ptr<Request> getNextRequest();
     
 public:
-    Server(Device *);
+    void init();
+    void addHandler(std::string, CivetHandler &);
 };
 
 #endif /* defined(__pmcdaemon__Server__) */

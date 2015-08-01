@@ -12,6 +12,7 @@
 #include "Device.h"
 
 int main(int argc, const char * argv[]) {
-    new Device();
+    Device *device = new Device();
+    device->init();
     return 0;
 }

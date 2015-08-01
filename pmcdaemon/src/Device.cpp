@@ -16,20 +16,29 @@
 /* Modules */
 #include "RadioModule.h"
 
+/* Handlers */
+#include "StationRequestHandler.h"
+
 #define CONF_PATH "/Users/Jem/workspace/PiPlayer/pmcdaemon/src/stations.conf"
 #define INTERVAL_MS 1000
 
-Device::Device(): server(new Server(this)) {
+Device::Device(): server(new Server()) {}
+
+void Device::init() {
     const std::string path = CONF_PATH;
     config = std::make_shared<Configuration>(path);
     
-    addModule(RADIO, new RadioModule(config));
+    server->init();
+    
+    StationRequestHandler handler(this);
+    addModule(RADIO, new RadioModule(config), "/api/radio/", handler);
     
     handleRequests();
 }
 
-void Device::addModule(ModuleType t, Module *m) {
-    modules[t] = std::unique_ptr<Module>(m);
+void Device::addModule(ModuleType type, Module *module, std::string url, CivetHandler &handler) {
+    modules[type] = std::unique_ptr<Module>(module);
+    server->addHandler(url, handler);
 }
 
 void Device::handleRequests() {
