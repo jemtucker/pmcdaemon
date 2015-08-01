@@ -11,8 +11,9 @@
 #define BITS 8
 #define DEFAULT_URL 0
 
-RadioModule::RadioModule(std::shared_ptr<Configuration> conf): Module(conf), currentUrl(*configuration->getUrl(DEFAULT_URL)) {
-    
+RadioModule::RadioModule(std::shared_ptr<Configuration> conf): Module(conf), currentUrl(*configuration->getUrl(DEFAULT_URL)) { }
+
+void RadioModule::init() {
     curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &RadioModule::static_play_stream);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);

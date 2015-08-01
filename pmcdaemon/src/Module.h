@@ -19,7 +19,7 @@ protected:
     std::shared_ptr<Configuration> configuration;
 public:
     Module(std::shared_ptr<Configuration> c): configuration(c) {}
-    
+    virtual void init() = 0;
     /* Playing methods */
     virtual void play(std::string &) = 0;
     virtual void stop() = 0;

@@ -50,6 +50,8 @@ public:
     RadioModule(std::shared_ptr<Configuration>);
     ~RadioModule();
     
+    void init() override;
+    
     /* Playing methods */
     void playUrl(std::string &);
     void play(std::string &) override;

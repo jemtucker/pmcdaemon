@@ -38,7 +38,12 @@ void Device::init() {
 
 void Device::addModule(ModuleType type, Module *module, std::string url, CivetHandler &handler) {
     modules[type] = std::unique_ptr<Module>(module);
-    server->addHandler(url, handler);
+    try {
+        modules[type]->init();
+        server->addHandler(url, handler);
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
 }
 
 void Device::handleRequests() {
