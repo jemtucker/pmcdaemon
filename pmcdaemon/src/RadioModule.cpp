@@ -31,7 +31,6 @@ RadioModule::~RadioModule() {
 
 
 /* Playing methods */
-
 void RadioModule::playUrl(std::string &url) {
     while (getStatus() == PLAYING) stop();
     setStatus(PLAYING);
@@ -106,20 +105,14 @@ size_t RadioModule::static_play_stream(void *buffer, size_t size, size_t nmemb, 
      return static_cast<RadioModule *>(userp)->play_stream(buffer, size, nmemb, userp);
 }
 
-
-/* Getters and Setters */
-
 void RadioModule::setStatus(Status status) {
-    mutexStatus.lock();
+    std::lock_guard<std::mutex> lock(mutexStatus);
     this->status = status;
-    mutexStatus.unlock();
 }
 
 Status RadioModule::getStatus(void) {
-    mutexStatus.lock();
-    Status rtn = status;
-    mutexStatus.unlock();
-    return rtn;
+    std::lock_guard<std::mutex> lock(mutexStatus);
+    return status;
 }
 
 

@@ -28,6 +28,7 @@ void StationIdRequest::execute(Device *device) {
         std::cout << "Recieved request to play station: "
                   << idString
                   << std::endl;
+        
         device->play(RADIO, idString);
     } else {
         std::cout << "No valid query provided for execution." << std::endl;
