@@ -85,13 +85,13 @@
 		B92ECBBF1B597EAE00AFD34C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B9D3BE631B4803150032BD64 /* Player */,
+				B9D3BE631B4803150032BD64 /* Radio */,
 				B92ECBC11B597EC600AFD34C /* Module.h */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
 		};
-		B9D3BE631B4803150032BD64 /* Player */ = {
+		B9D3BE631B4803150032BD64 /* Radio */ = {
 			isa = PBXGroup;
 			children = (
 				B9D9CDB41B1B118D00F3D578 /* stations.conf */,
@@ -102,7 +102,7 @@
 				B9D9CDAE1B1B118D00F3D578 /* RadioModule.cpp */,
 				B9D9CDAF1B1B118D00F3D578 /* RadioModule.h */,
 			);
-			name = Player;
+			name = Radio;
 			sourceTree = "<group>";
 		};
 		B9D3BE671B481DE20032BD64 /* Server */ = {
