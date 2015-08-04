@@ -19,7 +19,7 @@
 /* Handlers */
 #include "StationRequestHandler.h"
 
-#define CONF_PATH "/Users/Jem/workspace/PiPlayer/pmcdaemon/src/stations.conf"
+#define CONF_PATH "/Users/Jem/workspace/PiPlayer/resources/stations.conf"
 #define INTERVAL_MS 1000
 
 Device::Device(): server(new Server()) {}
