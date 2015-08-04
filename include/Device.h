@@ -17,7 +17,7 @@
 #include "CivetServer.h"
 
 enum ModuleType {
-    RADIO, ADMIN
+    RADIO
 };
 
 class Configuration;
