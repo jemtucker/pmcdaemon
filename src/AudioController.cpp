@@ -10,7 +10,18 @@
 
 #include <curl/curl.h>
 
+AudioController::~AudioController() {
+    mpg123_delete(mh);
+    mpg123_exit();
+    ao_close(ao);
+    ao_shutdown();
+}
 
+void AudioController::init() {
+    ao_initialize();
+    mpg123_init();
+    mh = mpg123_new(NULL, NULL);
+}
 
 size_t AudioController::playStream(void *buffer, size_t size, size_t nmemb, void *userp) {
     if (static_cast<AudioController *>(userp)->currentState() == STOPPED)

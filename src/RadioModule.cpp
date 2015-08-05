@@ -17,6 +17,8 @@ void RadioModule::init() {
     curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &RadioModule::static_play_stream);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, this);
+    
+    // TODO move out into audiocontroller
     ao_initialize();
     mpg123_init();
     mh = mpg123_new(NULL, NULL);
@@ -24,6 +26,8 @@ void RadioModule::init() {
 
 RadioModule::~RadioModule() {
     curl_easy_cleanup(curl);
+    
+    // TODO move out
     mpg123_delete(mh);
     mpg123_exit();
     ao_close(ao);

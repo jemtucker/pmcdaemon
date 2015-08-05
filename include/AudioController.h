@@ -29,7 +29,13 @@ class AudioController {
     AudioControllerState state = STOPPED;
     
     size_t playStream(void *buffer, size_t size, size_t nmemb, void *userp);
+    
+    
 public:
+    ~AudioController();
+    
+    void init();
+    
     AudioControllerState currentState();
     void setCurrentState(AudioControllerState s);
     static size_t staticPlayStream(void *buffer, size_t size, size_t nmemb, void *userp);
