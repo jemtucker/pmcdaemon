@@ -23,6 +23,17 @@ void AudioController::init() {
     mh = mpg123_new(NULL, NULL);
 }
 
+void AudioController::start() {
+    while (currentState() == PLAYING) stop();
+    setCurrentState(PLAYING);
+    mpg123_open_feed(mh);
+}
+
+void AudioController::stop() {
+    setCurrentState(STOPPED);
+    mpg123_close(mh);
+}
+
 size_t AudioController::playStream(void *buffer, size_t size, size_t nmemb, void *userp) {
     if (static_cast<AudioController *>(userp)->currentState() == STOPPED)
         return CURL_READFUNC_ABORT;

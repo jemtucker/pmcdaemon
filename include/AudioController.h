@@ -36,6 +36,9 @@ public:
     
     void init();
     
+    void start();
+    void stop();
+    
     AudioControllerState currentState();
     void setCurrentState(AudioControllerState s);
     static size_t staticPlayStream(void *buffer, size_t size, size_t nmemb, void *userp);
