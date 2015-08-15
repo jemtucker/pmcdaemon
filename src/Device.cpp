@@ -24,10 +24,10 @@ void Device::init() {
     }
 }
 
-Dispatcher *Device::getDispatcher() {
+Dispatcher* Device::getDispatcher() {
     return dispatcher.get();
 }
 
-Configuration *Device::getConfig() {
+Configuration* Device::getConfig() {
     return &config;
 }

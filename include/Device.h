@@ -23,8 +23,8 @@ class Device {
 public:
     Device();
     void init();
-    Dispatcher *getDispatcher();
-    Configuration *getConfig();
+    Dispatcher* getDispatcher();
+    Configuration* getConfig();
 };
 
 #endif /* defined(__pmcdaemon__Device__) */
