@@ -8,17 +8,19 @@
 
 #include "Server.h"
 
+#include "CivetServer.h"
+#include "Device.h"
+#include "StationRequestHandler.h"
+
 static const char *options[] = {
     "num_threads", "1",
     "listening_ports", "8080",
     NULL
 };
 
-void Server::init() {
+void Server::init(Device *d) {
     std::unique_ptr<CivetServer> cs(new CivetServer(options));
     server = std::move(cs);
-}
-
-void Server::addHandler(std::string route, CivetHandler &handler) {
-    server->addHandler(route, handler);
+    
+    server->addHandler("/api/radio/", new StationRequestHandler(d));
 }

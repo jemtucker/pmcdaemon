@@ -8,15 +8,18 @@
 
 #include "Configuration.h"
 
+#include <exception>
+#include <fstream>
+#include <iostream>
+
 #define EMPTY_URL ""
 
 Configuration::Configuration(const std::string &path) {
     loadConfig(path);
 }
 
-std::string* Configuration::getUrl(int i) {
-    if (i > stations.size() - 1)
-        throw std::runtime_error("Attempted to access a station ID that does not exist");
+std::string Configuration::getUrl(int i) {
+    if (i > stations.size() - 1) return EMPTY_URL;
     return stations[i]->getUrl();
 }
 

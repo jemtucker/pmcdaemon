@@ -9,22 +9,16 @@
 #ifndef __pmcdaemon__Server__
 #define __pmcdaemon__Server__
 
-#include <stdio.h>
-#include <mutex>
-#include <queue>
 #include <memory>
-#include <chrono>
-#include <thread>
 
-#include "CivetServer.h"
-#include "Request.h"
+class CivetHandler;
+class CivetServer;
+class Device;
 
 class Server {
     std::unique_ptr<CivetServer> server;
-    std::unique_ptr<Request> getNextRequest();
-    
 public:
-    void init();
+    void init(Device *d);
     void addHandler(std::string, CivetHandler &);
 };
 

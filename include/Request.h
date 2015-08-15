@@ -10,19 +10,16 @@
 #define __pmcdaemon__Request__
 
 #include "CivetServer.h"
-#include "Device.h"
-#include "Module.h"
 
 class Request {
 protected:
     const struct mg_request_info *info;
-    
 public:
     Request(const struct mg_request_info *i) {
         info = i;
     }
     
-    virtual void execute(Device *) = 0;
+    virtual int moduleType() = 0;
 };
 
 #endif /* defined(__pmcdaemon__Request__) */

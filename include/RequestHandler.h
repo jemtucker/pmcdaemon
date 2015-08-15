@@ -9,20 +9,18 @@
 #ifndef __pmcdaemon__RequestHandler__
 #define __pmcdaemon__RequestHandler__
 
-#include <stdio.h>
-#include <mutex>
+#include <memory>
 
 #include "CivetServer.h"
-#include "Device.h"
+
+class Device;
 
 class RequestHandler : public CivetHandler {
 protected:
-    Device *device;
+    std::shared_ptr<Device> device;
     
 public:
-    RequestHandler(Device *d) {
-        device = d;
-    }
+    RequestHandler(Device *d): device(d) {}
     
     virtual bool handlePost(CivetServer *, struct mg_connection *) = 0;
 };

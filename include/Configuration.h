@@ -12,9 +12,6 @@
 #include <string>
 #include <memory>
 #include <vector>
-#include <fstream>
-#include <iostream>
-#include <exception>
 
 #include "Station.h"
 
@@ -26,7 +23,7 @@ class Configuration {
     
 public:
     Configuration(const std::string &);
-    std::string* getUrl(int);
+    std::string getUrl(int);
 };
 
 #endif /* defined(__pmcdaemon__Configuration__) */

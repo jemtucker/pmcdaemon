@@ -11,7 +11,6 @@
 
 #include <string>
 #include <memory>
-#include <iostream>
 
 class Station {
     std::string name;
@@ -21,7 +20,7 @@ class Station {
 public:
     Station(std::string &, std::string &, int);
     void print();
-    std::string* getUrl();
+    std::string getUrl();
 };
 
 #endif /* defined(__pmcdaemon__Station__) */

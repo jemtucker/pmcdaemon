@@ -10,14 +10,21 @@
 #include <exception>
 #include <regex>
 
+#include "Dispatcher.h"
 #include "StationIdRequest.h"
 
 #define QUERY_ID "id="
 #define QUERY_REGEX "^id=\\d{1,2}$"
 
-StationIdRequest::StationIdRequest(const struct mg_request_info *i): Request(i) {}
+StationIdRequest::StationIdRequest(const struct mg_request_info *i, Configuration *c): Request(i) {
+    configuration = c;
+}
 
-void StationIdRequest::execute(Device *device) {
+int StationIdRequest::moduleType() {
+    return URL_STREAM;
+}
+
+std::string StationIdRequest::url() {
     std::regex regex(QUERY_REGEX);
     if (info->query_string != nullptr &&
         std::regex_match(info->query_string, regex)) {
@@ -28,9 +35,9 @@ void StationIdRequest::execute(Device *device) {
         std::cout << "Recieved request to play station: "
                   << idString
                   << std::endl;
-        
-        device->play(RADIO, idString);
+        return configuration->getUrl(stoi(idString));
     } else {
         std::cout << "No valid query provided for execution." << std::endl;
+        return "";
     }
 }

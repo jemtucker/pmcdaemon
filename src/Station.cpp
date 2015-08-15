@@ -8,11 +8,13 @@
 
 #include "Station.h"
 
+#include <iostream>
+
 Station::Station(std::string &name, std::string &url,
                  int identifier): name(name), url(url), identifier(identifier) {}
 
-std::string* Station::getUrl() {
-    return &url;
+std::string Station::getUrl() {
+    return url;
 }
 
 void Station::print() {

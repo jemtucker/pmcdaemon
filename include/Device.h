@@ -9,40 +9,22 @@
 #ifndef __pmcdaemon__Device__
 #define __pmcdaemon__Device__
 
-#include <map>
 #include <memory>
-#include <mutex>
-#include <queue>
 
-#include "CivetServer.h"
-
-enum ModuleType {
-    RADIO
-};
-
-class Configuration;
-class Module;
-class Request;
-class Server;
+#include "Configuration.h"
+#include "Dispatcher.h"
+#include "Server.h"
 
 class Device {
-    std::shared_ptr<Configuration> config;
-    std::map<ModuleType, std::unique_ptr<Module>> modules;
+    Configuration config;
     std::unique_ptr<Server> server;
+    std::unique_ptr<Dispatcher> dispatcher;
     
-    std::mutex mutexQueue;
-    std::queue<std::unique_ptr<Request>> requestQueue;
-    
-    void addModule(ModuleType, Module *, std::string, CivetHandler &);
-    
-    std::unique_ptr<Request> getNextRequest();
-    void handleRequests();
-
 public:
     Device();
     void init();
-    void queueRequest(Request *);
-    void play(ModuleType, std::string &);
+    Dispatcher *getDispatcher();
+    Configuration *getConfig();
 };
 
 #endif /* defined(__pmcdaemon__Device__) */
