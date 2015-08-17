@@ -8,12 +8,3 @@
 
 #include "FileListRequestHandler.h"
 
-#include "RequestHandler.h"
-
-class FileListRequestHandler: public RequestHandler {
-    
-    
-public:
-    FileListRequestHandler(Device *d): RequestHandler(d) {}
-    
-};

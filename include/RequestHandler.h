@@ -12,8 +12,7 @@
 #include <memory>
 
 #include "CivetServer.h"
-
-class Device;
+#include "Device.h"
 
 class RequestHandler : public CivetHandler {
 protected:
