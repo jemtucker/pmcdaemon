@@ -16,7 +16,7 @@ class FileListRequestHandler: public RequestHandler {
     
 public:
     FileListRequestHandler(Device *d): RequestHandler(d) {}
-    
+    virtual bool handlePost(CivetServer *, struct mg_connection *) override;
 };
 
 

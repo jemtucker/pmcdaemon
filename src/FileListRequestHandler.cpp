@@ -8,3 +8,11 @@
 
 #include "FileListRequestHandler.h"
 
+#include "FileListRequest.h"
+
+bool FileListRequestHandler::handlePost(CivetServer *s, struct mg_connection *conn) {
+    Request *request = new FileListRequest(mg_get_request_info(conn));
+    device->getDispatcher()->queueRequest(request);
+    mg_printf(conn, "HTTP/1.1 200 OK\n\nRequest Queued\n");
+    return true;
+}
