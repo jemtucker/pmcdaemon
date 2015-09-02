@@ -15,6 +15,9 @@ protected:
     
 };
 
-TEST(StationTest, Name) {
-    EXPECT_TRUE(true);
+TEST_F(StationTest, ReturnsAUrlWhenAsked) {
+    std::string station_name = "Station One";
+    std::string station_url  = "http://the/station/url.mp3 ";
+    Station station(station_name, station_url, 1);
+    EXPECT_EQ(station_url, station.getUrl());
 }
