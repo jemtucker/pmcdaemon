@@ -16,13 +16,13 @@
 #include "Request.h"
 #include "Module.h"
 
-class URLStreamModule;
-
-enum ModuleType {
-    URL_STREAM     = 1,
-    FILE_STREAM    = 2,
-    ADMINISTRATION = 3
-};
+namespace ModuleType {
+    enum {
+        URL_STREAM     = 1,
+        FILE_STREAM    = 2,
+        ADMINISTRATION = 3
+    };
+}
 
 class Dispatcher {
     std::mutex queueMutex;
@@ -36,7 +36,8 @@ class Dispatcher {
     void dispatch(Request *request);
     
 public:
-    Dispatcher();
+    Module *getModule(int type);
+    void addModule(int type, Module *module);
     void queueRequest(Request *request);
 };
 

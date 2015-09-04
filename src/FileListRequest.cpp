@@ -11,5 +11,5 @@
 #include "Dispatcher.h"
 
 int FileListRequest::moduleType() {
-    return FILE_STREAM;
+    return ModuleType::FILE_STREAM;
 }

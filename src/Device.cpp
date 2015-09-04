@@ -12,10 +12,13 @@
 #include <chrono>
 
 #include "Configuration.h"
+#include "URLStreamModule.h"
 
 #define CONF_PATH "/Users/Jem/workspace/PiPlayer/resources/stations.conf"
 
-Device::Device(): server(new Server()), config(CONF_PATH), dispatcher(new Dispatcher()) {}
+Device::Device(): server(new Server()), config(CONF_PATH), dispatcher(new Dispatcher()) {
+    dispatcher->addModule(1, new URLStreamModule());
+}
 
 void Device::init() {
     server->init(this);

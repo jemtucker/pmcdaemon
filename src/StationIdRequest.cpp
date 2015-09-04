@@ -21,7 +21,7 @@ StationIdRequest::StationIdRequest(const struct mg_request_info *i, Configuratio
 }
 
 int StationIdRequest::moduleType() {
-    return URL_STREAM;
+    return ModuleType::URL_STREAM;
 }
 
 std::string StationIdRequest::url() {

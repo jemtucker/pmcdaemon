@@ -8,13 +8,15 @@
 
 #include "Dispatcher.h"
 
-#include <thread>
-
 #include "Request.h"
-#include "URLStreamModule.h"
 
-Dispatcher::Dispatcher() {
-    modules[URL_STREAM] = std::unique_ptr<Module>(new URLStreamModule());
+
+void Dispatcher::addModule(int type, Module *module) {
+    modules[type] = std::unique_ptr<Module>(module);
+}
+
+Module *Dispatcher::getModule(int type) {
+    return modules[type].get();
 }
 
 bool Dispatcher::queueIsEmpty() {
@@ -50,6 +52,4 @@ void Dispatcher::queueRequest(Request *request) {
     if (first) {
         emptyQueue();
     }
-        
-        //std::thread t(&Dispatcher::emptyQueue, this);
 }
