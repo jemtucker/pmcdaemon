@@ -32,7 +32,7 @@ class Dispatcher {
     bool queueIsEmpty();
     void emptyQueue();
     Request *pop();
-    void push(Request *request);
+    bool push(Request *request);
     void dispatch(Request *request);
     
 public:

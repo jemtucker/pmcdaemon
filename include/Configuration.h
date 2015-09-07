@@ -17,12 +17,10 @@
 
 class Configuration {
     std::vector<std::unique_ptr<Station>> stations;
-    
-    void loadConfig(const std::string &);
     void parseLine(const char *);
     
 public:
-    Configuration(const std::string &);
+    void loadConfig(std::istream &file);
     std::string getUrl(int);
 };
 

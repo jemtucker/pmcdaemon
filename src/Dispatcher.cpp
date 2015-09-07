@@ -20,7 +20,6 @@ Module *Dispatcher::getModule(int type) {
 }
 
 bool Dispatcher::queueIsEmpty() {
-    std::lock_guard<std::mutex> lock(queueMutex);
     return requestQueue.empty();
 }
 
@@ -30,13 +29,13 @@ void Dispatcher::emptyQueue() {
     }
 }
 
-void Dispatcher::push(Request *request) {
-    std::lock_guard<std::mutex> lock(queueMutex);
+bool Dispatcher::push(Request *request) {
+    bool first = requestQueue.empty();
     requestQueue.push(request);
+    return first;
 }
 
 Request *Dispatcher::pop() {
-    std::lock_guard<std::mutex> lock(queueMutex);
     Request *r = requestQueue.front();
     requestQueue.pop();
     return r;
@@ -47,6 +46,7 @@ void Dispatcher::dispatch(Request *request) {
 }
 
 void Dispatcher::queueRequest(Request *request) {
+    std::lock_guard<std::mutex> lock(queueMutex);
     bool first = queueIsEmpty();
     push(request);
     if (first) {
