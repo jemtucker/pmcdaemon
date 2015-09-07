@@ -18,9 +18,8 @@
 
 namespace ModuleType {
     enum {
-        URL_STREAM     = 1,
-        FILE_STREAM    = 2,
-        ADMINISTRATION = 3
+        URL_STREAM   = 1,
+        URL_FUNCTION = 2
     };
 }
 

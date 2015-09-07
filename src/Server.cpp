@@ -22,5 +22,5 @@ void Server::init(Device *d) {
     std::unique_ptr<CivetServer> cs(new CivetServer(options));
     server = std::move(cs);
     
-    server->addHandler("/api/radio/", new StationRequestHandler(d));
+    server->addHandler("/api/play/", new StationRequestHandler(d));
 }

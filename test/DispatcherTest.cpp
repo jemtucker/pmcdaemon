@@ -54,7 +54,7 @@ TEST_F(DispatcherTest, ShouldDispatchRequestsToTheCorrectModule) {
     TestModule *tm2 = new TestModule();
     
     dispatcher.addModule(ModuleType::URL_STREAM, tm1);
-    dispatcher.addModule(ModuleType::FILE_STREAM, tm2);
+    dispatcher.addModule(ModuleType::URL_FUNCTION, tm2);
     
     dispatcher.queueRequest(new TestRequest(1));
     dispatcher.queueRequest(new TestRequest(1));
@@ -88,7 +88,7 @@ TEST_F(DispatcherTest, ShouldHandleMultipleThreadsQueueingRequests) {
     TestModule *tm2 = new TestModule();
     
     dispatcher.addModule(ModuleType::URL_STREAM, tm1);
-    dispatcher.addModule(ModuleType::FILE_STREAM, tm2);
+    dispatcher.addModule(ModuleType::URL_FUNCTION, tm2);
     
     std::thread t1(queueRequests, 100, 10, 1, &dispatcher);
     std::thread t2(queueRequests, 150,  1, 2, &dispatcher);

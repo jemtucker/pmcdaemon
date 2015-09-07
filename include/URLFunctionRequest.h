@@ -1,5 +1,5 @@
 //
-//  UrlFunctionRequest.h
+//  URLFunctionRequest.h
 //  pmcdaemon
 //
 //  Created by Jem Tucker on 07/09/2015.
@@ -9,6 +9,12 @@
 #ifndef __pmcdaemon__UrlFunctionRequest__
 #define __pmcdaemon__UrlFunctionRequest__
 
-#include <stdio.h>
+#include "Request.h"
 
-#endif /* defined(__pmcdaemon__UrlFunctionRequest__) */
+class URLFunctionRequest : public Request {
+public:
+    virtual int moduleType() override;
+    
+};
+
+#endif /* defined(__pmcdaemon__URLFunctionRequest__) */
