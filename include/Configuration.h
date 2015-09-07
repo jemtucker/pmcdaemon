@@ -11,17 +11,17 @@
 
 #include <string>
 #include <memory>
-#include <vector>
+#include <map>
 
 #include "Station.h"
 
 class Configuration {
-    std::vector<std::unique_ptr<Station>> stations;
+    std::map<std::string, std::unique_ptr<Station>> stations;
     void parseLine(const char *);
     
 public:
     void loadConfig(std::istream &file);
-    std::string getUrl(int);
+    std::string getUrl(std::string name);
 };
 
 #endif /* defined(__pmcdaemon__Configuration__) */

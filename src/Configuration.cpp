@@ -13,9 +13,9 @@
 
 #define EMPTY_URL ""
 
-std::string Configuration::getUrl(int i) {
-    if (i > stations.size() - 1) return EMPTY_URL;
-    return stations[i]->getUrl();
+std::string Configuration::getUrl(std::string name) {
+    if (stations.count(name) < 1) return EMPTY_URL;
+    return stations[name]->getUrl();
 }
 
 void Configuration::loadConfig(std::istream &file) {
@@ -51,7 +51,7 @@ void Configuration::parseLine(const char* line) {
         else v += c;
     }
     
-    stations.push_back(std::unique_ptr<Station>(new Station::Station(k, v, (int) stations.size())));
+    stations[k] = (std::unique_ptr<Station>(new Station::Station(k, v, (int) stations.size())));
 }
 
 

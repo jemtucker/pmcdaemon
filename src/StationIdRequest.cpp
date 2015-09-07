@@ -14,7 +14,7 @@
 #include "StationIdRequest.h"
 
 #define QUERY_ID "id="
-#define QUERY_REGEX "^id=\\d{1,2}$"
+#define QUERY_REGEX "^id=[a-zA-Z0-9]*$"
 
 StationIdRequest::StationIdRequest(const struct mg_request_info *i, Configuration *c): Request(i) {
     configuration = c;
@@ -35,7 +35,7 @@ std::string StationIdRequest::url() {
         std::cout << "Recieved request to play station: "
                   << idString
                   << std::endl;
-        return configuration->getUrl(stoi(idString));
+        return configuration->getUrl(idString);
     } else {
         std::cout << "No valid query provided for execution." << std::endl;
         return "";
