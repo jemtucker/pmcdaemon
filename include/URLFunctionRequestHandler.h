@@ -9,6 +9,13 @@
 #ifndef __pmcdaemon__URLFunctionRequestHandler__
 #define __pmcdaemon__URLFunctionRequestHandler__
 
-#include <stdio.h>
+#include "RequestHandler.h"
+
+class URLFunctionRequestHandler : public RequestHandler {
+    int matchRequest(std::string uri);
+public:
+    URLFunctionRequestHandler(Device *d): RequestHandler(d) {}
+    bool handlePost(CivetServer *, struct mg_connection *) override;
+};
 
 #endif /* defined(__pmcdaemon__URLFunctionRequestHandler__) */

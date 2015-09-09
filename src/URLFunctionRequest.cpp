@@ -7,3 +7,13 @@
 //
 
 #include "URLFunctionRequest.h"
+
+
+
+URLFunctionRequest::URLFunctionRequest(const struct mg_request_info *i, Configuration *c): Request(i), configuration(c) {
+    
+}
+
+int URLFunctionRequest::moduleType() {
+    return 2; // TODO Use Enum
+}

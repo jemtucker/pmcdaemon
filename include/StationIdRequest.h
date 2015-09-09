@@ -14,7 +14,7 @@
 #include "Request.h"
 #include "Configuration.h"
 
-class StationIdRequest: public Request {
+class StationIdRequest : public Request {
     Configuration *configuration;
 public:
     StationIdRequest(const struct mg_request_info *, Configuration *);
