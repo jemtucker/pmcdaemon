@@ -8,8 +8,6 @@
 
 #include "Dispatcher.h"
 
-#include "Request.h"
-
 
 void Dispatcher::addModule(int type, Module *module) {
     modules[type] = std::unique_ptr<Module>(module);
@@ -19,23 +17,23 @@ Module *Dispatcher::getModule(int type) {
     return modules[type].get();
 }
 
-bool Dispatcher::queueIsEmpty() {
-    return requestQueue.empty();
-}
-
 void Dispatcher::emptyQueue() {
-    while(!queueIsEmpty()) {
-        dispatch(pop());
+    Request *r;
+    while((r = pop()) != nullptr) {
+        dispatch(r);
     }
 }
 
 bool Dispatcher::push(Request *request) {
+    std::lock_guard<std::mutex> lock(queueMutex);
     bool first = requestQueue.empty();
     requestQueue.push(request);
     return first;
 }
 
 Request *Dispatcher::pop() {
+    std::lock_guard<std::mutex> lock(queueMutex);
+    if (requestQueue.empty()) return nullptr;
     Request *r = requestQueue.front();
     requestQueue.pop();
     return r;
@@ -46,10 +44,7 @@ void Dispatcher::dispatch(Request *request) {
 }
 
 void Dispatcher::queueRequest(Request *request) {
-    std::lock_guard<std::mutex> lock(queueMutex);
-    bool first = queueIsEmpty();
-    push(request);
-    if (first) {
+    if (push(request)) {
         emptyQueue();
     }
 }
