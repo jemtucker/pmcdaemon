@@ -16,7 +16,7 @@ class Configuration;
 class URLFunctionRequest : public Request {
     Configuration *configuration;
 public:
-    URLFunctionRequest(const struct mg_request_info *i, Configuration *c);
+    URLFunctionRequest(const struct mg_connection *conn, Configuration *conf);
     virtual int moduleType() override;
     
 };

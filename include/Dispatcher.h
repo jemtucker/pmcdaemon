@@ -24,20 +24,13 @@ namespace ModuleType {
 }
 
 class Dispatcher {
-    std::mutex queueMutex;
-    // TODO shared_ptr<Request>
-    std::queue<Request *> requestQueue;
+    std::mutex mutex;
     std::map<int, std::unique_ptr<Module>> modules;
-    bool queueIsEmpty();
-    void emptyQueue();
-    Request *pop();
-    bool push(Request *request);
-    void dispatch(Request *request);
     
 public:
     Module *getModule(int type);
     void addModule(int type, Module *module);
-    void queueRequest(Request *request);
+    void dispatch(Request *request);
 };
 
 #endif /* defined(__pmcdaemon__AudioController__) */

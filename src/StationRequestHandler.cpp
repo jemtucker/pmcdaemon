@@ -12,9 +12,8 @@
 #include "StationIdRequest.h"
 
 bool StationRequestHandler::handlePost(CivetServer *cs, struct mg_connection *conn) {
-    Request *request = new StationIdRequest(mg_get_request_info(conn), device->getConfig());
-    device->getDispatcher()->queueRequest(request);
-    mg_printf(conn, "HTTP/1.1 200 OK\n\nRequest Queued\n");
+    Request *request = new StationIdRequest(conn, device->getConfig());
+    device->getDispatcher()->dispatch(request);
     return true;
 }
 

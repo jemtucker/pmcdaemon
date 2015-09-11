@@ -8,9 +8,7 @@
 
 #include "URLFunctionRequest.h"
 
-
-
-URLFunctionRequest::URLFunctionRequest(const struct mg_request_info *i, Configuration *c): Request(i), configuration(c) {
+URLFunctionRequest::URLFunctionRequest(const struct mg_connection *conn, Configuration *conf): Request(conn), configuration(conf) {
     
 }
 

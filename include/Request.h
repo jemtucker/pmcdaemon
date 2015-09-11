@@ -13,10 +13,10 @@
 
 class Request {
 protected:
-    const struct mg_request_info *info;
+    const struct mg_connection *connection;
 public:
-    Request(const struct mg_request_info *i) {
-        info = i;
+    Request(const struct mg_connection *c) {
+        connection = c;
     }
     
     virtual int moduleType() = 0;

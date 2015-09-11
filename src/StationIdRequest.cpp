@@ -16,8 +16,8 @@
 #define QUERY_ID "id="
 #define QUERY_REGEX "^id=[a-zA-Z0-9]*$"
 
-StationIdRequest::StationIdRequest(const struct mg_request_info *i, Configuration *c): Request(i) {
-    configuration = c;
+StationIdRequest::StationIdRequest(const struct mg_connection *conn, Configuration *conf): Request(conn) {
+    configuration = conf;
 }
 
 int StationIdRequest::moduleType() {
@@ -25,6 +25,7 @@ int StationIdRequest::moduleType() {
 }
 
 std::string StationIdRequest::url() {
+    const struct mg_request_info *info = mg_get_request_info(connection);
     std::regex regex(QUERY_REGEX);
     if (info->query_string != nullptr &&
         std::regex_match(info->query_string, regex)) {

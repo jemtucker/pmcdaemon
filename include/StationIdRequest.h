@@ -17,10 +17,8 @@
 class StationIdRequest : public Request {
     Configuration *configuration;
 public:
-    StationIdRequest(const struct mg_request_info *, Configuration *);
-    
+    StationIdRequest(const struct mg_connection *conn, Configuration *conf);
     int moduleType() override;
-    // TODO make parent class urlrequest with virtual method url()
     std::string url();
 };
 
