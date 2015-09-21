@@ -21,7 +21,7 @@ protected:
 public:
     RequestHandler(Device *d): device(d) {}
     
-    virtual bool handlePost(CivetServer *, struct mg_connection *) = 0;
+    virtual bool handlePost(CivetServer *cs, struct mg_connection *conn) override;
 };
 
 #endif /* defined(__pmcdaemon__RequestHandler__) */

@@ -10,7 +10,7 @@
 
 #include "CivetServer.h"
 #include "Device.h"
-#include "StationRequestHandler.h"
+#include "RequestHandler.h"
 #include "URLFunctionRequestHandler.h"
 
 static const char *options[] = {
@@ -23,6 +23,6 @@ void Server::init(Device *d) {
     std::unique_ptr<CivetServer> cs(new CivetServer(options));
     server = std::move(cs);
     
-    server->addHandler("/api/play/", new StationRequestHandler(d));
+    server->addHandler("/api/play/", new RequestHandler(d));
     server->addHandler("/api/", new URLFunctionRequestHandler(d));
 }
