@@ -24,5 +24,5 @@ void Server::init(Device *d) {
     server = std::move(cs);
     
     server->addHandler("/api/play/", new StationRequestHandler(d));
-    server->addHandler("/api/func/", new URLFunctionRequestHandler(d));
+    server->addHandler("/api/", new URLFunctionRequestHandler(d));
 }

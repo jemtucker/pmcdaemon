@@ -14,7 +14,7 @@
 #include "StationIdRequest.h"
 
 #define QUERY_ID "id="
-#define QUERY_REGEX "^id=[a-zA-Z0-9]*$"
+#define QUERY_REGEX "^id=.*$"
 
 StationIdRequest::StationIdRequest(const struct mg_connection *conn, Configuration *conf): Request(conn) {
     configuration = conf;

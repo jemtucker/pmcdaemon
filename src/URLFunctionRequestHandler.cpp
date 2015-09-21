@@ -11,21 +11,22 @@
 #include <regex>
 #include <iostream>
 
+#include "StationIdRequest.h"
+
 bool URLFunctionRequestHandler::handlePost(CivetServer *s, struct mg_connection *conn) {
     auto *info = mg_get_request_info(conn);
     std::string requestUri = info->uri;
-    mg_printf(conn, "HTTP/1.1 200 OK\n\n%s\n", requestUri.c_str());
     switch (matchRequest(requestUri)) {
         case 1:
-            mg_printf(conn, "HTTP/1.1 200 OK\n\n%s\n", "now playingggggg");
+            mg_printf(conn, "HTTP/1.1 200 OK\n\n%s\n", "now playing - ");
             break;
         case 2:
             mg_printf(conn, "HTTP/1.1 200 OK\n\n%s\n", "list all");
             break;
         case 3:
             mg_printf(conn, "HTTP/1.1 200 OK\n\n%s\n", "Stopping");
+            device->getDispatcher()->dispatch(new StationIdRequest(conn, device->getConfig()));
             break;
-            
         default:
             mg_printf(conn, "HTTP/1.1 404 Not Found\n\n");
             break;
@@ -37,9 +38,9 @@ bool URLFunctionRequestHandler::handlePost(CivetServer *s, struct mg_connection 
 }
 
 int URLFunctionRequestHandler::matchRequest(std::string uri) {
-    std::regex regexNowPlaying(R"(^\/api\/func\/nowplaying$)");
-    std::regex regexListAll(R"(^\/api\/func\/listall$)");
-    std::regex regexStop(R"(^\/api\/func\/stop$)");
+    std::regex regexNowPlaying(R"(^\/api\/nowplaying$)");
+    std::regex regexListAll(R"(^\/api\/listall$)");
+    std::regex regexStop(R"(^\/api\/stop$)");
     
     if (std::regex_match(uri, regexNowPlaying)) return 1;
     if (std::regex_match(uri, regexListAll)) return 2;

@@ -8,8 +8,6 @@
 
 #include "URLFunctionModule.h"
 
-#include "URLFunctionRequest.h"
-
 void URLFunctionModule::execute(Request *r) {
-    auto request = static_cast<URLFunctionRequest *>(r);
+//    auto request = static_cast<URLFunctionRequest *>(r);
 }
