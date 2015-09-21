@@ -11,7 +11,6 @@
 #include "CivetServer.h"
 #include "Device.h"
 #include "RequestHandler.h"
-#include "URLFunctionRequestHandler.h"
 
 static const char *options[] = {
     "num_threads", "1",
@@ -23,6 +22,5 @@ void Server::init(Device *d) {
     std::unique_ptr<CivetServer> cs(new CivetServer(options));
     server = std::move(cs);
     
-    server->addHandler("/api/play/", new RequestHandler(d));
-    server->addHandler("/api/", new URLFunctionRequestHandler(d));
+    server->addHandler("/api/", new RequestHandler(d));
 }

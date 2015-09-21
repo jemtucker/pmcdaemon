@@ -12,18 +12,18 @@
 #include <memory>
 
 #include "Configuration.h"
-#include "Dispatcher.h"
+#include "URLStreamModule.h"
 #include "Server.h"
 
 class Device {
     Configuration config;
     std::unique_ptr<Server> server;
-    std::unique_ptr<Dispatcher> dispatcher;
+    std::unique_ptr<URLStreamModule> streamModule;
     
 public:
     Device();
     void init();
-    Dispatcher* getDispatcher();
+    URLStreamModule* getStreamModule();
     Configuration* getConfig();
 };
 

@@ -12,6 +12,7 @@
 #include <string>
 #include <memory>
 #include <map>
+#include <vector>
 
 #include "Station.h"
 
@@ -22,6 +23,7 @@ class Configuration {
 public:
     void loadConfig(std::istream &file);
     std::string getUrl(std::string name);
+    std::vector<std::string> getAllStations();
 };
 
 #endif /* defined(__pmcdaemon__Configuration__) */

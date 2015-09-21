@@ -11,8 +11,8 @@
 
 #include <memory>
 
-class CivetHandler;
-class CivetServer;
+#include "CivetServer.h"
+
 class Device;
 
 class Server {

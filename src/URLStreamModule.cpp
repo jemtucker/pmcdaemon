@@ -10,7 +10,6 @@
 
 #include "AudioController.h"
 #include "Configuration.h"
-#include "StationIdRequest.h"
 
 #define DEFAULT_URL 0
 
@@ -21,12 +20,6 @@ URLStreamModule::URLStreamModule(): ac(new AudioController()) {
 
 URLStreamModule::~URLStreamModule() {
     curl_easy_cleanup(curl);
-}
-
-void URLStreamModule::execute(Request *request) {
-    auto r = static_cast<StationIdRequest *>(request);
-    auto url = r->url();
-    playUrl(url);
 }
 
 void URLStreamModule::init() {
@@ -50,7 +43,9 @@ void URLStreamModule::play() {
 
 void URLStreamModule::stop() {
     ac->stop();
-    if (playThread != nullptr) playThread->join();
+    if (playThread != nullptr && playThread->joinable()) {
+        playThread->join();
+    }
 }
 
 

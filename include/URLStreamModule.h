@@ -14,28 +14,25 @@
 #include <memory>
 #include <curl/curl.h>
 
-#include "Module.h"
-
 class AudioController;
 
-class URLStreamModule: public Module {
+class URLStreamModule {
     /* Properties */
     std::unique_ptr<std::thread> playThread;
     std::unique_ptr<AudioController> ac;
     std::string currentUrl;
     CURL *curl;
     
-    /* Playing methods */
-    void playUrl(std::string &);
-    void play();
-    void stop();
-    void init();
-    
 public:
     URLStreamModule();
     ~URLStreamModule();
     
-    virtual void execute(Request *request) override;
+    void init();
+    
+    /* Playing methods */
+    void playUrl(std::string &);
+    void play();
+    void stop();
 };
 
 

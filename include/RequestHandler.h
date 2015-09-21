@@ -14,9 +14,23 @@
 #include "CivetServer.h"
 #include "Device.h"
 
+
 class RequestHandler : public CivetHandler {
-protected:
     std::shared_ptr<Device> device;
+    
+    const std::vector<std::string> routes {
+        R"(^\/api\/nowplaying$)",
+        R"(^\/api\/listall$)",
+        R"(^\/api\/stop$)",
+        R"(^\/api\/play.*)"
+    };
+    
+    int matchRequest(std::string uri);
+    
+    // TODO this should return int
+    std::string parseQueryString(std::string queryString);
+    
+    void listAllStations(struct mg_connection *conn);
     
 public:
     RequestHandler(Device *d): device(d) {}

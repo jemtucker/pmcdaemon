@@ -17,23 +17,24 @@
 
 #define CONF_PATH "/Users/Jem/workspace/PiPlayer/resources/stations.conf"
 
-Device::Device(): server(new Server()), config(), dispatcher(new Dispatcher()) {}
+Device::Device(): server(new Server()), config() {}
 
 void Device::init() {
     std::ifstream file(CONF_PATH, std::ifstream::in);
     
     config.loadConfig(file);
     
-    dispatcher->addModule(1, new URLStreamModule());
+    streamModule = std::unique_ptr<URLStreamModule>(new URLStreamModule());
     
     server->init(this);
+    
     while (true) {
         std::this_thread::sleep_for(std::chrono::seconds(10));
     }
 }
 
-Dispatcher* Device::getDispatcher() {
-    return dispatcher.get();
+URLStreamModule* Device::getStreamModule() {
+    return streamModule.get();
 }
 
 Configuration* Device::getConfig() {

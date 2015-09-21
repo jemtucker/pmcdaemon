@@ -54,5 +54,13 @@ void Configuration::parseLine(const char* line) {
     stations[k] = (std::unique_ptr<Station>(new Station::Station(k, v, (int) stations.size())));
 }
 
+std::vector<std::string> Configuration::getAllStations() {
+    std::vector<std::string> allStations;
+    for (auto iter = stations.begin(); iter != stations.end(); iter ++) {
+        allStations.push_back(iter->first);
+    }
+    return allStations;
+}
+
 
 
