@@ -27,10 +27,11 @@ class RequestHandler : public CivetHandler {
     
     int matchRequest(std::string uri);
     
-    // TODO this should return int
     std::string parseQueryString(std::string queryString);
     
-    void listAllStations(struct mg_connection *conn);
+    void list(struct mg_connection *conn);
+    void stop(struct mg_connection *conn);
+    void play(struct mg_connection *conn, const struct mg_request_info *info);
     
 public:
     RequestHandler(Device *d): device(d) {}

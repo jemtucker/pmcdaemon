@@ -20,29 +20,19 @@ bool RequestHandler::handlePost(CivetServer *cs, struct mg_connection *conn) {
     switch (matchRequest(info->uri)) {
         case 0:
             break;
-        case 1: {
-            listAllStations(conn);
+        case 1:
+            list(conn);
             break;
-        }
-        case 2: {
-            mg_printf(conn, "Stopping playback");
-            device->getStreamModule()->stop();
+        case 2:
+            stop(conn);
             break;
-        }
-        case 3: {
-            mg_printf(conn, "Starting playback");
-            std::string url = parseQueryString(info->query_string);
-            device->getStreamModule()->playUrl(url);
+        case 3:
+            play(conn, info);
             break;
-        }
-        default: {
-            mg_printf(conn, "404 Not Found");
+        default:
+            mg_printf(conn, "404 Not Found\n");
             break;
-        }
     }
-    
-    
-    
     return true;
 }
 
@@ -63,14 +53,14 @@ std::string RequestHandler::parseQueryString(std::string queryString) {
         std::cout << "Recieved request to play station: "
                   << idString
                   << std::endl;
-        return device->getConfig()->getUrl(idString);
+        return idString;
     } else {
         std::cout << "No valid query provided for execution." << std::endl;
         return "";
     }
 }
 
-void RequestHandler::listAllStations(struct mg_connection *conn) {
+void RequestHandler::list(struct mg_connection *conn) {
     auto stations = device->getConfig()->getAllStations();
     auto iter = stations.begin();
     
@@ -81,6 +71,18 @@ void RequestHandler::listAllStations(struct mg_connection *conn) {
     }
     
     mg_printf(conn, "%s", str.c_str());
+}
+
+void RequestHandler::stop(struct mg_connection *conn) {
+    mg_printf(conn, "Stopping playback\n");
+    device->getStreamModule()->stop();
+}
+
+void RequestHandler::play(struct mg_connection *conn, const struct mg_request_info *info) {
+    mg_printf(conn, "Starting playback\n");
+    std::string stationName = parseQueryString(info->query_string);
+    std::string url = device->getConfig()->getUrl(stationName);
+    device->getStreamModule()->playUrl(url);
 }
 
 
