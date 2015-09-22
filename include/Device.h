@@ -13,11 +13,17 @@
 
 #include "Configuration.h"
 #include "URLStreamModule.h"
-#include "Server.h"
+#include "CivetServer.h"
+
+static const char *OPTIONS[] = {
+    "num_threads", "1",
+    "listening_ports", "8080",
+    NULL
+};
 
 class Device {
     Configuration config;
-    std::unique_ptr<Server> server;
+    std::unique_ptr<CivetServer> server;
     std::unique_ptr<URLStreamModule> streamModule;
     
 public:

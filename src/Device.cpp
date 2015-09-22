@@ -13,11 +13,12 @@
 #include <fstream>
 
 #include "Configuration.h"
+#include "RequestHandler.h"
 #include "URLStreamModule.h"
 
 #define CONF_PATH "/Users/Jem/workspace/PiPlayer/resources/stations.conf"
 
-Device::Device(): server(new Server()), config() {}
+Device::Device(): server(new CivetServer(OPTIONS)), config() {}
 
 void Device::init() {
     std::ifstream file(CONF_PATH, std::ifstream::in);
@@ -26,7 +27,7 @@ void Device::init() {
     
     streamModule = std::unique_ptr<URLStreamModule>(new URLStreamModule());
     
-    server->init(this);
+    server->addHandler("/api/", new RequestHandler(this));
     
     while (true) {
         std::this_thread::sleep_for(std::chrono::seconds(10));
