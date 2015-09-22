@@ -21,7 +21,7 @@ class Configuration {
     void parseLine(const char *);
     
 public:
-    void loadConfig(std::istream &file);
+    void loadConfig(std::istream &instream);
     std::string getUrl(std::string name);
     std::vector<std::string> getAllStations();
 };

@@ -18,10 +18,10 @@ std::string Configuration::getUrl(std::string name) {
     return stations[name]->getUrl();
 }
 
-void Configuration::loadConfig(std::istream &file) {
+void Configuration::loadConfig(std::istream &instream) {
     std::string line;
     
-    while (std::getline(file, line)) {
+    while (std::getline(instream, line)) {
         if (!line.length())
             continue;
         parseLine(line.c_str());
